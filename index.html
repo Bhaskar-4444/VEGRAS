@@ -56,8 +56,24 @@
         p {
             font-weight: 300;
         }
-        .half-section {
+        .hero-slider {
+            position: relative;
             height: 50vh;
+            overflow: hidden;
+            border-radius: 0;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
             display: flex;
@@ -66,27 +82,105 @@
             color: white;
             text-align: center;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateX(100%);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            border: 4px solid;
+            border-radius: 0;
+            box-sizing: border-box;
         }
-        .half-section.visible {
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+        .slide-1 {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1607532941433-304659e8198a?auto=format&fit=crop&w=1600');
+            border-color: #f97316;
+        }
+        .slide-2 {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://th.bing.com/th/id/OIP.o6-FYVzAkMhHUPuHeqcoLgHaE8?w=286&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+            border-color: #10b981;
+        }
+        .slide-3 {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://th.bing.com/th/id/OIP.GJci02lGL8OQq_xXnm3_zQHaDt?w=349&h=174&c=7&r=0&o=7&dpr=1.3&pid=1.7');
+            border-color: #3b82f6;
+        }
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .nav-dot.active {
+            background: white;
+        }
+        .blank-space {
+            height: 50vh;
+            background: linear-gradient(to bottom, #d1fae5, #a7f3d0);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-top: 0;
+            overflow: hidden;
+        }
+        .flowchart-svg {
+            width: 100%;
+            height: 100%;
+        }
+        /* Flowchart Animations */
+        .flow-rect {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .flow-rect.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .flow-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        .flow-path.animate {
+            opacity: 1;
+            stroke-dashoffset: 0;
+        }
+        .flow-text {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.6s ease;
+        }
+        .flow-text.animate {
             opacity: 1;
             transform: translateY(0);
         }
-        .section-1 {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1607532941433-304659e8198a?auto=format&fit=crop&w=1600');
-            border: 4px solid #f97316;
-            border-radius: 8px;
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.8)); }
         }
-        .section-2 {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://th.bing.com/th/id/OIP.o6-FYVzAkMhHUPuHeqcoLgHaE8?w=286&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7');
-            border: 4px solid #10b981;
-            border-radius: 8px;
-        }
-        .section-3 {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://th.bing.com/th/id/OIP.GJci02lGL8OQq_xXnm3_zQHaDt?w=349&h=174&c=7&r=0&o=7&dpr=1.3&pid=1.7');
-            border: 4px solid #3b82f6;
-            border-radius: 8px;
+        .glow-text.animate {
+            animation: glow 2s infinite;
         }
         nav a, nav button {
             transition: color 0.3s ease, transform 0.3s ease;
@@ -191,6 +285,10 @@
                 width: 100%;
                 border-bottom: 1px solid #e5e7eb;
             }
+            .flowchart-svg {
+                width: 100%;
+                height: 100vh;
+            }
         }
     </style>
 </head>
@@ -202,7 +300,6 @@
             <p class="text-lg text-gray-800 font-medium">For better experience please go for desktop mode</p>
         </div>
     </div>
-
     <!-- Navbar -->
     <nav class="bg-white shadow-md fixed w-full z-10" style="top: 0;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -232,29 +329,155 @@
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
+    <!-- Hero Section with Slider -->
     <section id="home" class="pt-20">
-        <div class="half-section section-1">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-5xl md:text-6xl font-bold mb-4">Fresh Vegetables</h2>
-                <p class="text-xl md:text-2xl mb-6">Discover our range of organic, farm-fresh vegetables delivered straight to your door.</p>
+        <div class="hero-slider">
+            <div class="slide slide-1 active">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-4">Fresh Vegetables</h2>
+                    <p class="text-xl md:text-2xl mb-6">Discover our range of organic, farm-fresh vegetables delivered straight to your door.</p>
+                </div>
+            </div>
+            <div class="slide slide-2">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-4">Quality Greens</h2>
+                    <p class="text-xl md:text-2xl mb-6">Handpicked greens for a healthy and sustainable lifestyle.</p>
+                </div>
+            </div>
+            <div class="slide slide-3">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-5xl md:text-6xl font-bold mb-4">Seasonal Picks</h2>
+                    <p class="text-xl md:text-2xl mb-6">Explore seasonal vegetables for vibrant flavors and nutrition.</p>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="nav-dot active" data-slide="1"></div>
+                <div class="nav-dot" data-slide="2"></div>
+                <div class="nav-dot" data-slide="3"></div>
             </div>
         </div>
-        <div class="half-section section-2">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-5xl md:text-6xl font-bold mb-4">Quality Greens</h2>
-                <p class="text-xl md:text-2xl mb-6">Handpicked greens for a healthy and sustainable lifestyle.</p>
-            </div>
-        </div>
-        <div class="half-section section-3">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-5xl md:text-6xl font-bold mb-4">Seasonal Picks</h2>
-                <p class="text-xl md:text-2xl mb-6">Explore seasonal vegetables for vibrant flavors and nutrition.</p>
-            </div>
+        <!-- Blank space with flowchart -->
+        <div class="blank-space">
+            <svg class="flowchart-svg" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background -->
+                <rect width="1200" height="300" fill="url(#bg-grad)" rx="20" opacity="0.9"/>
+
+                <!-- Background gradient -->
+                <defs>
+                    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#a7f3d0;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Arrow marker definitions -->
+                <defs>
+                    <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L10,3 z" fill="#10b981" opacity="0.9"/>
+                    </marker>
+                    <marker id="arrow-orange" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L10,3 z" fill="#f97316" opacity="0.9"/>
+                    </marker>
+                    <filter id="shadow">
+                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+                    </filter>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge> 
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <!-- Supplier Boxes (Left, positioned lower) -->
+                <!-- Mandi -->
+                <rect class="flow-rect" x="40" y="110" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+                <defs>
+                    <radialGradient id="green-grad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" style="stop-color:#ecfdf5;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#d1fae5;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+                <text class="flow-text glow-text" x="120" y="135" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Mandi</text>
+                <text class="flow-text" x="120" y="155" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🛒</text>
+
+                <!-- Farmers -->
+                <rect class="flow-rect" x="40" y="185" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+                <text class="flow-text glow-text" x="120" y="210" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Farmers</text>
+                <text class="flow-text" x="120" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🌾</text>
+
+                <!-- Imported -->
+                <rect class="flow-rect" x="40" y="260" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+                <text class="flow-text glow-text" x="120" y="285" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Imported</text>
+                <text class="flow-text" x="120" y="305" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🌍</text>
+
+                <!-- Center Vegras -->
+                <rect class="flow-rect" x="350" y="90" width="500" height="220" rx="30" fill="url(#vegras-grad)" stroke="#f97316" stroke-width="5" filter="url(#shadow)"/>
+                <defs>
+                    <radialGradient id="vegras-grad" cx="30%" cy="30%" r="70%">
+                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                        <stop offset="60%" style="stop-color:#34d399;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+                <text class="flow-text glow-text" x="600" y="145" font-family="Poppins, sans-serif" font-size="70" font-weight="800" text-anchor="middle" fill="white" stroke="#ffffff" stroke-width="2" filter="url(#glow)">VEGRAS</text>
+                <text class="flow-text" x="600" y="185" font-family="Poppins, sans-serif" font-size="16" text-anchor="middle" fill="#f9fafb" font-weight="600">Your Trusted Supply Partner</text>
+                <text class="flow-text" x="600" y="215" font-family="Poppins, sans-serif" font-size="14" text-anchor="middle" fill="#f9fafb" font-style="italic">Connecting Farms to Tables Seamlessly</text>
+                <text class="flow-text" x="600" y="245" font-family="Poppins, sans-serif" font-size="12" text-anchor="middle" fill="#f9fafb" opacity="0.8">Fresh • Reliable • Sustainable</text>
+
+                <!-- Customer Boxes (Right, positioned lower) -->
+                <!-- Hotels -->
+                <rect class="flow-rect" x="990" y="110" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+                <defs>
+                    <radialGradient id="orange-grad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" style="stop-color:#fefce8;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#fef3c7;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+                <text class="flow-text glow-text" x="1070" y="135" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Hotels</text>
+                <text class="flow-text" x="1070" y="155" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🏨</text>
+
+                <!-- Restaurants -->
+                <rect class="flow-rect" x="990" y="185" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+                <text class="flow-text glow-text" x="1070" y="210" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Restaurants</text>
+                <text class="flow-text" x="1070" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🍽️</text>
+
+                <!-- Caterers -->
+                <rect class="flow-rect" x="990" y="260" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+                <text class="flow-text glow-text" x="1070" y="285" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Caterers</text>
+                <text class="flow-text" x="1070" y="305" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🍲</text>
+
+                <!-- Vendor -->
+                <rect class="flow-rect" x="990" y="220" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+                <text class="flow-text glow-text" x="1070" y="245" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Vendor</text>
+                <text class="flow-text" x="1070" y="265" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🏪</text>
+
+                <!-- Arrows from Suppliers to Vegras (Green, curved for attractiveness) -->
+                <!-- Mandi to Vegras -->
+                <path class="flow-path" d="M200 140 Q350 80 500 140" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
+                <!-- Farmers to Vegras -->
+                <path class="flow-path" d="M200 215 Q350 260 500 215" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
+                <!-- Imported to Vegras -->
+                <path class="flow-path" d="M200 290 Q350 330 500 290" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
+
+                <!-- Arrows from Vegras to Customers (Orange, curved) -->
+                <!-- Vegras to Hotels -->
+                <path class="flow-path" d="M850 140 Q1000 80 1150 140" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+                <!-- Vegras to Restaurants -->
+                <path class="flow-path" d="M850 215 Q1000 260 1150 215" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+                <!-- Vegras to Caterers -->
+                <path class="flow-path" d="M850 290 Q1000 330 1150 290" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+                <!-- Vegras to Vendor -->
+                <path class="flow-path" d="M850 250 Q1000 180 1150 250" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+
+                <!-- Decorative elements for attractiveness -->
+                <circle cx="600" cy="150" r="100" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="10,10" opacity="0.4" filter="url(#glow)"/>
+                <circle cx="600" cy="150" r="50" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" filter="url(#glow)"/>
+                <ellipse cx="600" cy="200" rx="200" ry="20" fill="none" stroke="#10b981" stroke-width="1" opacity="0.2"/>
+            </svg>
         </div>
     </section>
-
     <!-- Products Section -->
     <section id="products" class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -307,7 +530,6 @@
             </div>
         </div>
     </section>
-
     <!-- Blog Section -->
     <section id="blog" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -331,7 +553,6 @@
             </div>
         </div>
     </section>
-
     <!-- FAQ Section -->
     <section id="faq" class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -356,7 +577,6 @@
             </div>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gradient-to-r from-orange-100 to-green-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -401,7 +621,6 @@
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -411,7 +630,6 @@
             </p>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -458,7 +676,6 @@
             </div>
         </div>
     </footer>
-
     <!-- 🔑 Auth Popup -->
     <div id="authPopup" class="popup-overlay">
         <div class="popup-content">
@@ -481,48 +698,126 @@
             </button>
         </div>
     </div>
-
     <script>
-        // Intersection Observer for scroll animations
-        window.onload = () => {
-            const sections = document.querySelectorAll('.half-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const navDots = document.querySelectorAll('.nav-dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev');
+                if (i === index) {
+                    slide.classList.add('active');
+                } else if (i === (index - 1 + slides.length) % slides.length) {
+                    slide.classList.add('prev');
+                }
+            });
+            navDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Navigation dots
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Flowchart animation
+        function animateFlowchart() {
+            const rects = document.querySelectorAll('.flow-rect');
+            const texts = document.querySelectorAll('.flow-text');
+            const paths = document.querySelectorAll('.flow-path');
+
+            // Animate supplier rects and texts first
+            rects.forEach((rect, index) => {
+                if (index < 3) { // Suppliers
+                    setTimeout(() => {
+                        rect.classList.add('animate');
+                        texts.forEach((text, tIndex) => {
+                            if (tIndex <= index * 2 + 1) { // Approximate for suppliers
+                                setTimeout(() => text.classList.add('animate'), 200);
+                            }
+                        });
+                    }, index * 300);
+                }
+            });
+
+            // Animate center Vegras
+            const vegrasRect = document.querySelector('.flow-rect:nth-child(4)'); // Adjust selector if needed
+            setTimeout(() => {
+                document.querySelectorAll('.flow-rect')[3].classList.add('animate'); // Vegras rect
+                document.querySelectorAll('.flow-text')[6].classList.add('animate'); // Vegras text
+            }, 900);
+
+            // Animate green paths
+            paths.forEach((path, index) => {
+                if (index < 3) { // Green paths
+                    setTimeout(() => path.classList.add('animate'), 1200 + index * 200);
+                }
+            });
+
+            // Animate customer rects
+            setTimeout(() => {
+                document.querySelectorAll('.flow-rect').forEach((rect, index) => {
+                    if (index > 3) {
+                        setTimeout(() => rect.classList.add('animate'), (index - 4) * 300);
                     }
                 });
-            }, { threshold: 0.3 });
+                texts.forEach((text, tIndex) => {
+                    if (tIndex > 8) { // Approximate for customers
+                        setTimeout(() => text.classList.add('animate'), (tIndex - 9) * 200);
+                    }
+                });
+            }, 1800);
 
-            sections.forEach(section => observer.observe(section));
+            // Animate orange paths
+            setTimeout(() => {
+                paths.forEach((path, index) => {
+                    if (index >= 3) {
+                        setTimeout(() => path.classList.add('animate'), (index - 3) * 200);
+                    }
+                });
+            }, 2400);
+        }
+
+        // Intersection Observer for other animations (removed for slider sections as they are now overlaid)
+        window.onload = () => {
+            // Trigger flowchart animation after a delay
+            setTimeout(animateFlowchart, 500);
 
             // Popup logic
             const popup = document.getElementById('popup');
             const closePopup = document.getElementById('popup-close');
-
             if (!sessionStorage.getItem('popupShown')) {
                 popup.classList.add('active');
                 sessionStorage.setItem('popupShown', 'true');
             }
-
             closePopup.addEventListener('click', () => {
                 popup.classList.remove('active');
             });
-
             popup.addEventListener('click', (e) => {
                 if (e.target === popup) {
                     popup.classList.remove('active');
                 }
             });
-
             // Hamburger menu logic
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
-
             hamburger.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
-
             // Close menu when a link or button is clicked
             navLinks.querySelectorAll('a, button').forEach(item => {
                 item.addEventListener('click', () => {
@@ -534,9 +829,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, RecaptchaVerifier, signInWithPhoneNumber, onAuthStateChanged } 
+        import { getAuth, signInWithPopup, GoogleAuthProvider, RecaptchaVerifier, signInWithPhoneNumber, onAuthStateChanged }
             from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
         // ✅ Firebase Config
         const firebaseConfig = {
             apiKey: "AIzaSyAOzPZhqIfWp305sSJnhcR8sT4nKfdmcSs",
@@ -547,18 +841,15 @@
             appId: "1:708490496297:web:3684e5c0ac4125111b0f38",
             measurementId: "G-HPD0Z7JDT2"
         };
-
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
-
         // 🔹 Elements
         const authPopup = document.getElementById("authPopup");
         const authClose = document.getElementById("authClose");
         const googleBtn = document.getElementById("googleLogin");
         const authButton = document.getElementById("authButton");
-
         // ✅ Google Login
         const provider = new GoogleAuthProvider();
         googleBtn.addEventListener("click", () => {
@@ -570,10 +861,8 @@
                 })
                 .catch((err) => alert(err.message));
         });
-
         // ✅ OTP Login
         window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", { size: "normal" });
-
         document.getElementById("otpSend").addEventListener("click", () => {
             const phone = document.getElementById("phoneNumber").value;
             const appVerifier = window.recaptchaVerifier;
@@ -584,7 +873,6 @@
                 })
                 .catch((err) => alert(err.message));
         });
-
         document.getElementById("otpVerify").addEventListener("click", () => {
             const code = document.getElementById("otpCode").value;
             window.confirmationResult.confirm(code)
@@ -595,10 +883,8 @@
                 })
                 .catch((err) => alert(err.message));
         });
-
         // ✅ Popup Close
         authClose.addEventListener("click", () => authPopup.classList.remove("active"));
-
         // ✅ Authentication Button
         authButton.addEventListener("click", () => {
             if (!auth.currentUser) {
@@ -610,7 +896,6 @@
                 }).catch((err) => alert(err.message));
             }
         });
-
         // ✅ Protect "Place Order" Links
         const orderLinks = document.querySelectorAll("a[href*='order'], a[href*='cart'], a[href*='write_order']");
         orderLinks.forEach(link => {
@@ -621,7 +906,6 @@
                 }
             });
         });
-
         // ✅ Update Auth Button Text
         function updateAuthButton(user) {
             if (user) {
@@ -630,7 +914,6 @@
                 authButton.textContent = "Login/Sign Up";
             }
         }
-
         // ✅ Check Login State
         onAuthStateChanged(auth, (user) => {
             updateAuthButton(user);
