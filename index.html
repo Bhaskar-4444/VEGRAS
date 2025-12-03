@@ -145,16 +145,6 @@
         .flowchart-svg {
             width: 100%;
             height: 100%;
-            z-index: 2;
-            position: relative;
-        }
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
         }
         /* Flowchart Animations */
         .flow-rect {
@@ -365,246 +355,366 @@
                 
                 
             
-            
-     
-    
         
-            Our Products
-            
-                
-                    Vegetarian Items 🌿
-                    Explore our range of fresh, plant-based dishes crafted with organic ingredients.
-                
-                
-                    Non-Vegetarian Items 🍗
-                    Premium quality meat and seafood sourced sustainably for your dining pleasure.
-                
-                
-                    Dairy Products 🧀
-                    Fresh and high-quality dairy products for your daily needs.
-                
-                
-                    Spices & Masalas 🧂
-                    Authentic spices and masalas to elevate your culinary creations.
-                
-                
-                    Oils & Fats 🍪
-                    Pure and healthy oils and fats for cooking and baking.
-                
-                
-                    Snacks & Dry Items 🍬
-                    Premium quality snacks, grains, and pulses for your pantry.
-                
-                
-                    Sweeteners & Baking 🍰
-                    High-quality sweeteners and baking essentials for delicious treats.
-                
-                
-                    Fresh Fruits 🍎
-                    Seasonal and exotic fruits, handpicked for freshness and flavor.
-                
-                
-                    Beverages 🥤
-                    A variety of juices, teas, and healthy drinks to quench your thirst.
-                
-                
-                    Household Essentials 🧼
-                    Cleaning supplies, paper products, and everyday home needs.
-                
-                
-                    Write Your Order / अपना ऑर्डर लिखें ✍️
-                    Custom orders? Write or speak your requirements, and we'll fulfill them!
-                
-            
         
-    
-    
-    
-        
-            Our Blog
-            
-                
-                    Revolutionizing the Vegetable Supply Chain: The Vegras Approach
-                    Explore how Vegras is transforming the traditional supply chain by connecting farmers directly with institutional buyers for better efficiency and fairness.
-                    Read More →
-                
-                
-                    Building Trust-Based Partnerships in B2B Vegetable Supply
-                    Learn about Vegras' commitment to reliability, standardized pricing, and dedicated service for long-term institutional relationships.
-                    Read More →
-                
-                
-                    The Impact of Direct Procurement on Farmers and Buyers
-                    Discover the benefits of eliminating intermediaries, including fair returns for farmers and affordable rates for buyers like college messes and hotels.
-                    Read More →
-                
-            
-        
-    
-    
-    
-        
-            Frequently Asked Questions
-            
-                
-                    What are your delivery hours?
-                    We deliver from 8 AM to 8 PM, seven days a week. Same-day delivery is available for orders placed before 2 PM.
-                
-                
-                    Do you offer organic products?
-                    Yes, all our vegetables and many other items are certified organic and sourced from trusted farms.
-                
-                
-                    How can I track my order?
-                    Once your order is dispatched, you'll receive a tracking link via email or WhatsApp.
-                
-                
-                    What is your return policy?
-                    We offer a 100% satisfaction guarantee. If you're not happy with any item, contact us within 24 hours for a refund or replacement.
-                
-            
-        
-    
-    
-    
-        
-            Get in Touch
-            We’re here to assist you! Reach out through any channel or explore our delivery locations.
-            
-                
-                    Contact Information
-                    
-                        
-                            
-                            help.vegras9@gmail.com
-                        
-                        
-                            
-                            +917050462102
-                        
-                        
-                            
-                            +91-9508331748 (WhatsApp)
-                        
-                        
-                            
-                            New Delhi (Delivery Available)
-                        
-                    
-                
-                
-                    Customer Service & Locations
-                    
-                        
-                            Customer Service
-                            Our dedicated team is available 24/7 to help with orders, deliveries, or inquiries. We prioritize your satisfaction.
-                        
-                        
-                            Delivery Locations
-                            Currently serving New Delhi and surrounding areas. Expanding to NCR regions soon!
-                            View Upcoming Locations
-                        
-                    
-                
-            
-        
-    
-    
-    
-        
-            About Us
-            
-                At Vegras, we believe that great food starts with great ingredients. We are a next-generation food and raw material supply brand, dedicated to serving restaurants, hotels, caterers, and food businesses with unmatched quality, timely delivery, and transparent pricing. Our name stands for Supply, Professionalism, and Value — and that's exactly what we deliver. Whether it's fresh produce, pantry staples, or bulk essentials, we ensure your kitchen never stops. We’re not just a supplier; we are your behind-the-scenes partner in every dish you serve. Let’s grow together — one delivery at a time.
-            
-        
-    
-    
-    
         
             
                 
-                    
-                        Vegras
-                    
-                    Your trusted source for premium groceries and fresh produce.
-                    © 2025 Vegras. All rights reserved.
                 
-                
-                    Quick Links
-                    
-                        Home
-                        Products
-                        Blog
-                        FAQ
-                        About
-                        Contact
-                    
-                
-                
-                    Customer Support
-                    
-                        Privacy Policy
-                        Terms of Service
-                        Shipping Information
-                        Returns & Refunds
-                        Careers
-                    
-                
-                
-                    Connect With Us
-                    
-                        Email:help.vegras@gmail.com
-                        Phone: +917050462102
-                        WhatsApp: +91-9508331748
-                        Facebook
-                        Instagram
-                        Twitter
-                    
-                
-            
-        
-    
-    
-    
-        
-            ×
-            Login / Sign Up
-            Please login to continue with your order
-            
-            
-                Continue with Google
-            
-            
-            
-            
-            
-                Send OTP
-            
-            
-            
-                Verify OTP
-            
-        
-    
-    
-    
-    
-        // Slider functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const navDots = document.querySelectorAll('.nav-dot');
 
-<pre><code>    function showSlide(index) {
-        slides.forEach((slide, i) =&gt; {
-            slide.classList.remove(&#39;active&#39;, &#39;prev&#39;);
+            <!-- Background gradient -->
+            <defs>
+                <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#a7f3d0;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+
+            <!-- Arrow marker definitions -->
+            <defs>
+                <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L10,3 z" fill="#10b981" opacity="0.9"/>
+                </marker>
+                <marker id="arrow-orange" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L10,3 z" fill="#f97316" opacity="0.9"/>
+                </marker>
+                <filter id="shadow">
+                    <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+                </filter>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- Supplier Boxes (Left, positioned lower) -->
+            <!-- Mandi -->
+            <rect class="flow-rect" x="40" y="110" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+            <defs>
+                <radialGradient id="green-grad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#ecfdf5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#d1fae5;stop-opacity:1" />
+                </radialGradient>
+            </defs>
+            <text class="flow-text glow-text" x="120" y="135" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Mandi</text>
+            <text class="flow-text" x="120" y="155" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🛒</text>
+
+            <!-- Farmers -->
+            <rect class="flow-rect" x="40" y="185" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+            <text class="flow-text glow-text" x="120" y="210" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Farmers</text>
+            <text class="flow-text" x="120" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🌾</text>
+
+            <!-- Imported -->
+            <rect class="flow-rect" x="40" y="260" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+            <text class="flow-text glow-text" x="120" y="285" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Imported</text>
+            <text class="flow-text" x="120" y="305" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🌍</text>
+
+            <!-- Center Vegras -->
+            <rect class="flow-rect" x="350" y="90" width="500" height="220" rx="30" fill="url(#vegras-grad)" stroke="#f97316" stroke-width="5" filter="url(#shadow)"/>
+            <defs>
+                <radialGradient id="vegras-grad" cx="30%" cy="30%" r="70%">
+                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                    <stop offset="60%" style="stop-color:#34d399;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+                </radialGradient>
+            </defs>
+            <text class="flow-text glow-text" x="600" y="145" font-family="Poppins, sans-serif" font-size="70" font-weight="800" text-anchor="middle" fill="white" stroke="#ffffff" stroke-width="2" filter="url(#glow)">VEGRAS</text>
+            <text class="flow-text" x="600" y="185" font-family="Poppins, sans-serif" font-size="16" text-anchor="middle" fill="#f9fafb" font-weight="600">Your Trusted Supply Partner</text>
+            <text class="flow-text" x="600" y="215" font-family="Poppins, sans-serif" font-size="14" text-anchor="middle" fill="#f9fafb" font-style="italic">Connecting Farms to Tables Seamlessly</text>
+            <text class="flow-text" x="600" y="245" font-family="Poppins, sans-serif" font-size="12" text-anchor="middle" fill="#f9fafb" opacity="0.8">Fresh • Reliable • Sustainable</text>
+
+            <!-- Customer Boxes (Right, positioned lower) -->
+            <!-- Hotels -->
+            <rect class="flow-rect" x="990" y="110" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+            <defs>
+                <radialGradient id="orange-grad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#fefce8;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#fef3c7;stop-opacity:1" />
+                </radialGradient>
+            </defs>
+            <text class="flow-text glow-text" x="1070" y="135" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Hotels</text>
+            <text class="flow-text" x="1070" y="155" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🏨</text>
+
+            <!-- Restaurants -->
+            <rect class="flow-rect" x="990" y="185" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+            <text class="flow-text glow-text" x="1070" y="210" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Restaurants</text>
+            <text class="flow-text" x="1070" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🍽️</text>
+
+            <!-- Caterers -->
+            <rect class="flow-rect" x="990" y="260" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+            <text class="flow-text glow-text" x="1070" y="285" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Caterers</text>
+            <text class="flow-text" x="1070" y="305" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🍲</text>
+
+            <!-- Vendor -->
+            <rect class="flow-rect" x="990" y="220" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+            <text class="flow-text glow-text" x="1070" y="245" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Vendor</text>
+            <text class="flow-text" x="1070" y="265" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🏪</text>
+
+            <!-- Arrows from Suppliers to Vegras (Green, curved for attractiveness) -->
+            <!-- Mandi to Vegras -->
+            <path class="flow-path" d="M200 140 Q350 80 500 140" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
+            <!-- Farmers to Vegras -->
+            <path class="flow-path" d="M200 215 Q350 260 500 215" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
+            <!-- Imported to Vegras -->
+            <path class="flow-path" d="M200 290 Q350 330 500 290" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
+
+            <!-- Arrows from Vegras to Customers (Orange, curved) -->
+            <!-- Vegras to Hotels -->
+            <path class="flow-path" d="M850 140 Q1000 80 1150 140" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+            <!-- Vegras to Restaurants -->
+            <path class="flow-path" d="M850 215 Q1000 260 1150 215" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+            <!-- Vegras to Caterers -->
+            <path class="flow-path" d="M850 290 Q1000 330 1150 290" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+            <!-- Vegras to Vendor -->
+            <path class="flow-path" d="M850 250 Q1000 180 1150 250" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+
+            <!-- Decorative elements for attractiveness -->
+            <circle cx="600" cy="150" r="100" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="10,10" opacity="0.4" filter="url(#glow)"/>
+            <circle cx="600" cy="150" r="50" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" filter="url(#glow)"/>
+            <ellipse cx="600" cy="200" rx="200" ry="20" fill="none" stroke="#10b981" stroke-width="1" opacity="0.2"/>
+        </svg>
+    </div>
+</section>
+<!-- Products Section -->
+<section id="products" class="py-20 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Our Products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <a href="vegetarian.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Vegetarian Items 🌿</h3>
+                <p class="text-gray-600">Explore our range of fresh, plant-based dishes crafted with organic ingredients.</p>
+            </a>
+            <a href="non_vegetarian.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Non-Vegetarian Items 🍗</h3>
+                <p class="text-gray-600">Premium quality meat and seafood sourced sustainably for your dining pleasure.</p>
+            </a>
+            <a href="dairy_products.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Dairy Products 🧀</h3>
+                <p class="text-gray-600">Fresh and high-quality dairy products for your daily needs.</p>
+            </a>
+            <a href="spices_masalas.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Spices & Masalas 🧂</h3>
+                <p class="text-gray-600">Authentic spices and masalas to elevate your culinary creations.</p>
+            </a>
+            <a href="oils_fats.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Oils & Fats 🍪</h3>
+                <p class="text-gray-600">Pure and healthy oils and fats for cooking and baking.</p>
+            </a>
+            <a href="snacks_dry_items.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Snacks & Dry Items 🍬</h3>
+                <p class="text-gray-600">Premium quality snacks, grains, and pulses for your pantry.</p>
+            </a>
+            <a href="sweeteners_baking.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Sweeteners & Baking 🍰</h3>
+                <p class="text-gray-600">High-quality sweeteners and baking essentials for delicious treats.</p>
+            </a>
+            <a href="fruits.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Fresh Fruits 🍎</h3>
+                <p class="text-gray-600">Seasonal and exotic fruits, handpicked for freshness and flavor.</p>
+            </a>
+            <a href="beverages.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Beverages 🥤</h3>
+                <p class="text-gray-600">A variety of juices, teas, and healthy drinks to quench your thirst.</p>
+            </a>
+            <a href="household_essentials.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Household Essentials 🧼</h3>
+                <p class="text-gray-600">Cleaning supplies, paper products, and everyday home needs.</p>
+            </a>
+            <a href="write_order.html" class="bg-white p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Write Your Order / अपना ऑर्डर लिखें ✍️</h3>
+                <p class="text-gray-600">Custom orders? Write or speak your requirements, and we'll fulfill them!</p>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Blog Section -->
+<section id="blog" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Our Blog</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Revolutionizing the Vegetable Supply Chain: The Vegras Approach</h3>
+                <p class="text-gray-600 mb-4">Explore how Vegras is transforming the traditional supply chain by connecting farmers directly with institutional buyers for better efficiency and fairness.</p>
+                <a href="blog/supply-chain-revolution.html" class="text-orange-500 hover:text-orange-600 font-medium">Read More →</a>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Building Trust-Based Partnerships in B2B Vegetable Supply</h3>
+                <p class="text-gray-600 mb-4">Learn about Vegras' commitment to reliability, standardized pricing, and dedicated service for long-term institutional relationships.</p>
+                <a href="blog/trust-partnerships.html" class="text-orange-500 hover:text-orange-600 font-medium">Read More →</a>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md product-card">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">The Impact of Direct Procurement on Farmers and Buyers</h3>
+                <p class="text-gray-600 mb-4">Discover the benefits of eliminating intermediaries, including fair returns for farmers and affordable rates for buyers like college messes and hotels.</p>
+                <a href="blog/direct-procurement-impact.html" class="text-orange-500 hover:text-orange-600 font-medium">Read More →</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FAQ Section -->
+<section id="faq" class="py-20 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Frequently Asked Questions</h2>
+        <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">What are your delivery hours?</h3>
+                <p class="text-gray-600">We deliver from 8 AM to 8 PM, seven days a week. Same-day delivery is available for orders placed before 2 PM.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Do you offer organic products?</h3>
+                <p class="text-gray-600">Yes, all our vegetables and many other items are certified organic and sourced from trusted farms.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">How can I track my order?</h3>
+                <p class="text-gray-600">Once your order is dispatched, you'll receive a tracking link via email or WhatsApp.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">What is your return policy?</h3>
+                <p class="text-gray-600">We offer a 100% satisfaction guarantee. If you're not happy with any item, contact us within 24 hours for a refund or replacement.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gradient-to-r from-orange-100 to-green-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Get in Touch</h2>
+        <p class="text-lg text-gray-600 text-center mb-12">We’re here to assist you! Reach out through any channel or explore our delivery locations.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-orange-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <a href="mailto:hariom.556879@gmail.com" class="text-gray-600 hover:text-orange-500">help.vegras9@gmail.com</a>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-orange-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <a href="tel:+917050462102" class="text-gray-600 hover:text-orange-500">+917050462102</a>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-orange-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                        <a href="https://wa.me/919508331748" target="_blank" class="text-gray-600 hover:text-orange-500">+91-9508331748 (WhatsApp)</a>
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-orange-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span class="text-gray-600">New Delhi (Delivery Available)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-6">Customer Service & Locations</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900">Customer Service</h4>
+                        <p class="text-gray-600">Our dedicated team is available 24/7 to help with orders, deliveries, or inquiries. We prioritize your satisfaction.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900">Delivery Locations</h4>
+                        <p class="text-gray-600">Currently serving New Delhi and surrounding areas. Expanding to NCR regions soon!</p>
+                        <a href="coming-soon.html" class="inline-block mt-4 bg-orange-500 text-white py-2 px-6 rounded-md hover:bg-orange-600 transition-colors">View Upcoming Locations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">About Us</h2>
+        <p class="text-gray-600 text-center max-w-3xl mx-auto">
+            At Vegras, we believe that great food starts with great ingredients. We are a next-generation food and raw material supply brand, dedicated to serving restaurants, hotels, caterers, and food businesses with unmatched quality, timely delivery, and transparent pricing. Our name stands for Supply, Professionalism, and Value — and that's exactly what we deliver. Whether it's fresh produce, pantry staples, or bulk essentials, we ensure your kitchen never stops. We’re not just a supplier; we are your behind-the-scenes partner in every dish you serve. Let’s grow together — one delivery at a time.
+        </p>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="logo mb-4">
+                    <span class="logo-green">Veg</span><span class="logo-saffron">ras</span>
+                </div>
+                <p class="text-gray-400 mb-4">Your trusted source for premium groceries and fresh produce.</p>
+                <p class="text-gray-400">© 2025 Vegras. All rights reserved.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="#products" class="text-gray-400 hover:text-white">Products</a></li>
+                    <li><a href="#blog" class="text-gray-400 hover:text-white">Blog</a></li>
+                    <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
+                    <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Customer Support</h4>
+                <ul class="space-y-2">
+                    <li><a href="privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    <li><a href="shipping-info.html" class="text-gray-400 hover:text-white">Shipping Information</a></li>
+                    <li><a href="returns.html" class="text-gray-400 hover:text-white">Returns & Refunds</a></li>
+                    <li><a href="careers.html" class="text-gray-400 hover:text-white">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                <ul class="space-y-2">
+                    <li><a href="mailto:hariom.556879@gmail.com" class="text-gray-400 hover:text-white">Email:help.vegras@gmail.com</a></li>
+                    <li><a href="tel:+917050462102" class="text-gray-400 hover:text-white">Phone: +917050462102</a></li>
+                    <li><a href="https://wa.me/919508331748" target="_blank" class="text-gray-400 hover:text-white">WhatsApp: +91-9508331748</a></li>
+                    <li><a href="https://www.facebook.com/vegras" target="_blank" class="text-gray-400 hover:text-white">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/vegras" target="_blank" class="text-gray-400 hover:text-white">Instagram</a></li>
+                    <li><a href="https://www.twitter.com/vegras" target="_blank" class="text-gray-400 hover:text-white">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- 🔑 Auth Popup -->
+<div id="authPopup" class="popup-overlay">
+    <div class="popup-content">
+        <span id="authClose" class="popup-close">&times;</span>
+        <h2 class="text-2xl font-bold mb-4 text-gray-800">Login / Sign Up</h2>
+        <p class="mb-4 text-gray-600">Please login to continue with your order</p>
+        <!-- Google Login -->
+        <button id="googleLogin" class="w-full mb-4 bg-red-500 text-white py-2 rounded hover:bg-red-600">
+            Continue with Google
+        </button>
+        <!-- Phone OTP -->
+        <input type="text" id="phoneNumber" placeholder="+91 9876543210" class="w-full p-2 border rounded mb-2">
+        <div id="recaptcha-container" class="mb-2"></div>
+        <button id="otpSend" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 mb-2">
+            Send OTP
+        </button>
+        <input type="text" id="otpCode" placeholder="Enter OTP" class="w-full p-2 border rounded mb-2">
+        <button id="otpVerify" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+            Verify OTP
+        </button>
+    </div>
+</div>
+<script>
+    // Slider functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const navDots = document.querySelectorAll('.nav-dot');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active', 'prev');
             if (i === index) {
-                slide.classList.add(&#39;active&#39;);
+                slide.classList.add('active');
             } else if (i === (index - 1 + slides.length) % slides.length) {
-                slide.classList.add(&#39;prev&#39;);
+                slide.classList.add('prev');
             }
         });
-        navDots.forEach((dot, i) =&gt; {
-            dot.classList.toggle(&#39;active&#39;, i === index);
+        navDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
         });
     }
 
@@ -617,8 +727,8 @@
     setInterval(nextSlide, 5000);
 
     // Navigation dots
-    navDots.forEach((dot, index) =&gt; {
-        dot.addEventListener(&#39;click&#39;, () =&gt; {
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
             currentSlide = index;
             showSlide(currentSlide);
         });
@@ -626,18 +736,18 @@
 
     // Flowchart animation
     function animateFlowchart() {
-        const rects = document.querySelectorAll(&#39;.flow-rect&#39;);
-        const texts = document.querySelectorAll(&#39;.flow-text&#39;);
-        const paths = document.querySelectorAll(&#39;.flow-path&#39;);
+        const rects = document.querySelectorAll('.flow-rect');
+        const texts = document.querySelectorAll('.flow-text');
+        const paths = document.querySelectorAll('.flow-path');
 
         // Animate supplier rects and texts first
-        rects.forEach((rect, index) =&gt; {
-            if (index &lt; 3) { // Suppliers
-                setTimeout(() =&gt; {
-                    rect.classList.add(&#39;animate&#39;);
-                    texts.forEach((text, tIndex) =&gt; {
-                        if (tIndex &lt;= index * 2 + 1) { // Approximate for suppliers
-                            setTimeout(() =&gt; text.classList.add(&#39;animate&#39;), 200);
+        rects.forEach((rect, index) => {
+            if (index < 3) { // Suppliers
+                setTimeout(() => {
+                    rect.classList.add('animate');
+                    texts.forEach((text, tIndex) => {
+                        if (tIndex <= index * 2 + 1) { // Approximate for suppliers
+                            setTimeout(() => text.classList.add('animate'), 200);
                         }
                     });
                 }, index * 300);
@@ -645,232 +755,174 @@
         });
 
         // Animate center Vegras
-        const vegrasRect = document.querySelector(&#39;.flow-rect:nth-child(4)&#39;); // Adjust selector if needed
-        setTimeout(() =&gt; {
-            document.querySelectorAll(&#39;.flow-rect&#39;)[3].classList.add(&#39;animate&#39;); // Vegras rect
-            document.querySelectorAll(&#39;.flow-text&#39;)[6].classList.add(&#39;animate&#39;); // Vegras text
+        const vegrasRect = document.querySelector('.flow-rect:nth-child(4)'); // Adjust selector if needed
+        setTimeout(() => {
+            document.querySelectorAll('.flow-rect')[3].classList.add('animate'); // Vegras rect
+            document.querySelectorAll('.flow-text')[6].classList.add('animate'); // Vegras text
         }, 900);
 
         // Animate green paths
-        paths.forEach((path, index) =&gt; {
-            if (index &lt; 3) { // Green paths
-                setTimeout(() =&gt; path.classList.add(&#39;animate&#39;), 1200 + index * 200);
+        paths.forEach((path, index) => {
+            if (index < 3) { // Green paths
+                setTimeout(() => path.classList.add('animate'), 1200 + index * 200);
             }
         });
 
         // Animate customer rects
-        setTimeout(() =&gt; {
-            document.querySelectorAll(&#39;.flow-rect&#39;).forEach((rect, index) =&gt; {
-                if (index &gt; 3) {
-                    setTimeout(() =&gt; rect.classList.add(&#39;animate&#39;), (index - 4) * 300);
+        setTimeout(() => {
+            document.querySelectorAll('.flow-rect').forEach((rect, index) => {
+                if (index > 3) {
+                    setTimeout(() => rect.classList.add('animate'), (index - 4) * 300);
                 }
             });
-            texts.forEach((text, tIndex) =&gt; {
-                if (tIndex &gt; 8) { // Approximate for customers
-                    setTimeout(() =&gt; text.classList.add(&#39;animate&#39;), (tIndex - 9) * 200);
+            texts.forEach((text, tIndex) => {
+                if (tIndex > 8) { // Approximate for customers
+                    setTimeout(() => text.classList.add('animate'), (tIndex - 9) * 200);
                 }
             });
         }, 1800);
 
         // Animate orange paths
-        setTimeout(() =&gt; {
-            paths.forEach((path, index) =&gt; {
-                if (index &gt;= 3) {
-                    setTimeout(() =&gt; path.classList.add(&#39;animate&#39;), (index - 3) * 200);
+        setTimeout(() => {
+            paths.forEach((path, index) => {
+                if (index >= 3) {
+                    setTimeout(() => path.classList.add('animate'), (index - 3) * 200);
                 }
             });
         }, 2400);
     }
 
     // Intersection Observer for other animations (removed for slider sections as they are now overlaid)
-    window.onload = () =&gt; {
+    window.onload = () => {
         // Trigger flowchart animation after a delay
         setTimeout(animateFlowchart, 500);
 
-        // Particles.js config
-        particlesJS.load(&#39;particles-js&#39;, {
-            &quot;particles&quot;: {
-                &quot;number&quot;: {
-                    &quot;value&quot;: 60,
-                    &quot;density&quot;: {
-                        &quot;enable&quot;: true,
-                        &quot;value_area&quot;: 800
-                    }
-                },
-                &quot;color&quot;: {
-                    &quot;value&quot;: &quot;#d1fae5&quot;
-                },
-                &quot;shape&quot;: {
-                    &quot;type&quot;: &quot;circle&quot;
-                },
-                &quot;opacity&quot;: {
-                    &quot;value&quot;: 0.4,
-                    &quot;random&quot;: true
-                },
-                &quot;size&quot;: {
-                    &quot;value&quot;: 4,
-                    &quot;random&quot;: true
-                },
-                &quot;line_linked&quot;: {
-                    &quot;enable&quot;: true,
-                    &quot;distance&quot;: 150,
-                    &quot;color&quot;: &quot;#a7f3d0&quot;,
-                    &quot;opacity&quot;: 0.3,
-                    &quot;width&quot;: 1
-                },
-                &quot;move&quot;: {
-                    &quot;enable&quot;: true,
-                    &quot;speed&quot;: 1,
-                    &quot;direction&quot;: &quot;none&quot;,
-                    &quot;random&quot;: true,
-                    &quot;straight&quot;: false,
-                    &quot;out_mode&quot;: &quot;out&quot;,
-                    &quot;bounce&quot;: false
-                }
-            },
-            &quot;interactivity&quot;: {
-                &quot;detect_on&quot;: &quot;canvas&quot;,
-                &quot;events&quot;: {
-                    &quot;onhover&quot;: {
-                        &quot;enable&quot;: true,
-                        &quot;mode&quot;: &quot;repulse&quot;
-                    },
-                    &quot;onclick&quot;: {
-                        &quot;enable&quot;: false
-                    },
-                    &quot;resize&quot;: true
-                }
-            },
-            &quot;retina_detect&quot;: true
-        });
-
         // Popup logic
-        const popup = document.getElementById(&#39;popup&#39;);
-        const closePopup = document.getElementById(&#39;popup-close&#39;);
-        if (!sessionStorage.getItem(&#39;popupShown&#39;)) {
-            popup.classList.add(&#39;active&#39;);
-            sessionStorage.setItem(&#39;popupShown&#39;, &#39;true&#39;);
+        const popup = document.getElementById('popup');
+        const closePopup = document.getElementById('popup-close');
+        if (!sessionStorage.getItem('popupShown')) {
+            popup.classList.add('active');
+            sessionStorage.setItem('popupShown', 'true');
         }
-        closePopup.addEventListener(&#39;click&#39;, () =&gt; {
-            popup.classList.remove(&#39;active&#39;);
+        closePopup.addEventListener('click', () => {
+            popup.classList.remove('active');
         });
-        popup.addEventListener(&#39;click&#39;, (e) =&gt; {
+        popup.addEventListener('click', (e) => {
             if (e.target === popup) {
-                popup.classList.remove(&#39;active&#39;);
+                popup.classList.remove('active');
             }
         });
         // Hamburger menu logic
-        const hamburger = document.querySelector(&#39;.hamburger&#39;);
-        const navLinks = document.querySelector(&#39;.nav-links&#39;);
-        hamburger.addEventListener(&#39;click&#39;, () =&gt; {
-            navLinks.classList.toggle(&#39;active&#39;);
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
         // Close menu when a link or button is clicked
-        navLinks.querySelectorAll(&#39;a, button&#39;).forEach(item =&gt; {
-            item.addEventListener(&#39;click&#39;, () =&gt; {
-                navLinks.classList.remove(&#39;active&#39;);
+        navLinks.querySelectorAll('a, button').forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
             });
         });
     };
-&lt;/script&gt;
-&lt;script type=&quot;module&quot;&gt;
-    import { initializeApp } from &quot;https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js&quot;;
-    import { getAnalytics } from &quot;https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js&quot;;
+</script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
     import { getAuth, signInWithPopup, GoogleAuthProvider, RecaptchaVerifier, signInWithPhoneNumber, onAuthStateChanged }
-        from &quot;https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js&quot;;
+        from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
     // ✅ Firebase Config
     const firebaseConfig = {
-        apiKey: &quot;AIzaSyAOzPZhqIfWp305sSJnhcR8sT4nKfdmcSs&quot;,
-        authDomain: &quot;vegras-74c12.firebaseapp.com&quot;,
-        projectId: &quot;vegras-74c12&quot;,
-        storageBucket: &quot;vegras-74c12.firebasestorage.app&quot;,
-        messagingSenderId: &quot;708490496297&quot;,
-        appId: &quot;1:708490496297:web:3684e5c0ac4125111b0f38&quot;,
-        measurementId: &quot;G-HPD0Z7JDT2&quot;
+        apiKey: "AIzaSyAOzPZhqIfWp305sSJnhcR8sT4nKfdmcSs",
+        authDomain: "vegras-74c12.firebaseapp.com",
+        projectId: "vegras-74c12",
+        storageBucket: "vegras-74c12.firebasestorage.app",
+        messagingSenderId: "708490496297",
+        appId: "1:708490496297:web:3684e5c0ac4125111b0f38",
+        measurementId: "G-HPD0Z7JDT2"
     };
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
     // 🔹 Elements
-    const authPopup = document.getElementById(&quot;authPopup&quot;);
-    const authClose = document.getElementById(&quot;authClose&quot;);
-    const googleBtn = document.getElementById(&quot;googleLogin&quot;);
-    const authButton = document.getElementById(&quot;authButton&quot;);
+    const authPopup = document.getElementById("authPopup");
+    const authClose = document.getElementById("authClose");
+    const googleBtn = document.getElementById("googleLogin");
+    const authButton = document.getElementById("authButton");
     // ✅ Google Login
     const provider = new GoogleAuthProvider();
-    googleBtn.addEventListener(&quot;click&quot;, () =&gt; {
+    googleBtn.addEventListener("click", () => {
         signInWithPopup(auth, provider)
-            .then((result) =&gt; {
-                alert(&quot;Welcome &quot; + result.user.displayName);
-                authPopup.classList.remove(&quot;active&quot;);
+            .then((result) => {
+                alert("Welcome " + result.user.displayName);
+                authPopup.classList.remove("active");
                 updateAuthButton(result.user);
             })
-            .catch((err) =&gt; alert(err.message));
+            .catch((err) => alert(err.message));
     });
     // ✅ OTP Login
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, &quot;recaptcha-container&quot;, { size: &quot;normal&quot; });
-    document.getElementById(&quot;otpSend&quot;).addEventListener(&quot;click&quot;, () =&gt; {
-        const phone = document.getElementById(&quot;phoneNumber&quot;).value;
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", { size: "normal" });
+    document.getElementById("otpSend").addEventListener("click", () => {
+        const phone = document.getElementById("phoneNumber").value;
         const appVerifier = window.recaptchaVerifier;
         signInWithPhoneNumber(auth, phone, appVerifier)
-            .then((confirmationResult) =&gt; {
+            .then((confirmationResult) => {
                 window.confirmationResult = confirmationResult;
-                alert(&quot;OTP Sent!&quot;);
+                alert("OTP Sent!");
             })
-            .catch((err) =&gt; alert(err.message));
+            .catch((err) => alert(err.message));
     });
-    document.getElementById(&quot;otpVerify&quot;).addEventListener(&quot;click&quot;, () =&gt; {
-        const code = document.getElementById(&quot;otpCode&quot;).value;
+    document.getElementById("otpVerify").addEventListener("click", () => {
+        const code = document.getElementById("otpCode").value;
         window.confirmationResult.confirm(code)
-            .then((result) =&gt; {
-                alert(&quot;Phone Verified! &quot; + result.user.phoneNumber);
-                authPopup.classList.remove(&quot;active&quot;);
+            .then((result) => {
+                alert("Phone Verified! " + result.user.phoneNumber);
+                authPopup.classList.remove("active");
                 updateAuthButton(result.user);
             })
-            .catch((err) =&gt; alert(err.message));
+            .catch((err) => alert(err.message));
     });
     // ✅ Popup Close
-    authClose.addEventListener(&quot;click&quot;, () =&gt; authPopup.classList.remove(&quot;active&quot;));
+    authClose.addEventListener("click", () => authPopup.classList.remove("active"));
     // ✅ Authentication Button
-    authButton.addEventListener(&quot;click&quot;, () =&gt; {
+    authButton.addEventListener("click", () => {
         if (!auth.currentUser) {
-            authPopup.classList.add(&quot;active&quot;);
+            authPopup.classList.add("active");
         } else {
-            auth.signOut().then(() =&gt; {
-                alert(&quot;Logged out successfully&quot;);
+            auth.signOut().then(() => {
+                alert("Logged out successfully");
                 updateAuthButton(null);
-            }).catch((err) =&gt; alert(err.message));
+            }).catch((err) => alert(err.message));
         }
     });
-    // ✅ Protect &quot;Place Order&quot; Links
-    const orderLinks = document.querySelectorAll(&quot;a[href*=&#39;order&#39;], a[href*=&#39;cart&#39;], a[href*=&#39;write_order&#39;]&quot;);
-    orderLinks.forEach(link =&gt; {
-        link.addEventListener(&quot;click&quot;, (e) =&gt; {
+    // ✅ Protect "Place Order" Links
+    const orderLinks = document.querySelectorAll("a[href*='order'], a[href*='cart'], a[href*='write_order']");
+    orderLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
             if (!auth.currentUser) {
                 e.preventDefault();
-                authPopup.classList.add(&quot;active&quot;);
+                authPopup.classList.add("active");
             }
         });
     });
     // ✅ Update Auth Button Text
     function updateAuthButton(user) {
         if (user) {
-            authButton.textContent = &quot;Logout&quot;;
+            authButton.textContent = "Logout";
         } else {
-            authButton.textContent = &quot;Login/Sign Up&quot;;
+            authButton.textContent = "Login/Sign Up";
         }
     }
     // ✅ Check Login State
-    onAuthStateChanged(auth, (user) =&gt; {
+    onAuthStateChanged(auth, (user) => {
         updateAuthButton(user);
         if (user) {
-            console.log(&quot;Logged in:&quot;, user);
+            console.log("Logged in:", user);
         } else {
-            console.log(&quot;Not logged in&quot;);
+            console.log("Not logged in");
         }
     });
-&lt;/script&gt;
-</code></pre>
-</body>
-</html>
+</script>
+
+
