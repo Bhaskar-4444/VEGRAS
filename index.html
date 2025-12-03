@@ -358,107 +358,113 @@
         </div>
         <!-- Blank space with flowchart -->
         <div class="blank-space">
-        <svg viewBox="0 0 1400 650" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; background:#ccfbf1; border-radius:20px;">
-  
-  <!-- Background -->
-  <rect width="1400" height="650" fill="#ccfbf1" rx="30"/>
+       <svg class="flowchart-svg" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background -->
+                <rect width="1200" height="300" fill="url(#bg-grad)" rx="20" opacity="0.9"/>
 
-  <!-- LEFT SIDE - Suppliers (Green Theme) -->
-  <!-- Mandi -->
-  <g transform="translate(120,180)">
-    <rect x="0" y="0" width="180" height="100" rx="50" fill="#10b981" opacity="0.15"/>
-    <rect x="0" y="0" width="180" height="100" rx="50" fill="none" stroke="#10b981" stroke-width="4"/>
-    <text x="90" y="40" font-size="18" font-weight="800" text-anchor="middle" fill="#065f46">Mandi</text>
-    <text x="90" y="75" font-size="38" text-anchor="middle">Shopping Cart</text>
-  </g>
+                <!-- Background gradient -->
+                <defs>
+                    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#a7f3d0;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
 
-  <!-- Farmers -->
-  <g transform="translate(120,300)">
-    <rect x="0" y="0" width="180" height="100" rx="50" fill="#10b981" opacity="0.15"/>
-    <rect x="0" y="0" width="180" height="100" rx="50" fill="none" stroke="#10b981" stroke-width="4"/>
-    <text x="90" y="40" font-size="18" font-weight="800" text-anchor="middle" fill="#065f46">Farmers</text>
-    <text x="90" y="75" font-size="38" text-anchor="middle">Seedling</text>
-  </g>
+                <!-- Arrow marker definitions -->
+                <defs>
+                    <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L10,3 z" fill="#10b981" opacity="0.9"/>
+                    </marker>
+                    <marker id="arrow-orange" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L0,6 L10,3 z" fill="#f97316" opacity="0.9"/>
+                    </marker>
+                    <filter id="shadow">
+                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+                    </filter>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge> 
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
 
-  <!-- Imported -->
-  <g transform="translate(120,420)">
-    <rect x="0" y="0" width="180" height="100" rx="50" fill="#10b981" opacity="0.15"/>
-    <rect x="0" y="0" width="180" height="100" rx="50" fill="none" stroke="#10b981" stroke-width="4"/>
-    <text x="90" y="40" font-size="18" font-weight="800" text-anchor="middle" fill="#065f46">Imported</text>
-    <text x="90" y="75" font-size="38" text-anchor="middle">Globe</text>
-  </g>
+                <!-- Supplier Boxes (Left, positioned lower) -->
+                <!-- Mandi -->
+                <rect class="flow-rect" x="40" y="110" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+                <defs>
+                    <radialGradient id="green-grad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" style="stop-color:#ecfdf5;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#d1fae5;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+                <text class="flow-text glow-text" x="120" y="135" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Mandi</text>
+                <text class="flow-text" x="120" y="155" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🛒</text>
 
-  <!-- CENTER - VEGRAS (Main Hero Box) -->
-  <rect x="450" y="120" width="500" height="410" rx="70" fill="#f97316"/>
-  <rect x="450" y="120" width="500" height="410" rx="70" fill="url(#center-grad)" opacity="0.6"/>
-  
-  <defs>
-    <radialGradient id="center-grad" cx="50%" cy="40%">
-      <stop offset="0%" stop-color="#34d399"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0.3"/>
-    </radialGradient>
-  </defs>
+                <!-- Farmers -->
+                <rect class="flow-rect" x="40" y="185" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+                <text class="flow-text glow-text" x="120" y="210" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Farmers</text>
+                <text class="flow-text" x="120" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🌾</text>
 
-  <text x="700" y="250" font-size="110" font-weight="900" fill="white" text-anchor="middle" letter-spacing="4">VEGRAS</text>
-  <text x="700" y="320" font-size="26" fill="white" font-weight="600" text-anchor="middle">Your Trusted Supply Partner</text>
-  <text x="700" y="365" font-size="20" fill="#ecfdf5" text-anchor="middle">Connecting Farms to Tables Seamlessly</text>
-  <text x="700" y="405" font-size="18" fill="#d1fae5" text-anchor="middle">Fresh • Reliable • Sustainable</text>
+                <!-- Imported -->
+                <rect class="flow-rect" x="40" y="260" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+                <text class="flow-text glow-text" x="120" y="285" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Imported</text>
+                <text class="flow-text" x="120" y="305" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🌍</text>
 
-  <!-- RIGHT SIDE - Customers (Orange Theme) -->
-  <!-- Hotels -->
-  <g transform="translate(1100,150)">
-    <rect x="0" y="0" width="200" height="90" rx="45" fill="#fff7ed"/>
-    <rect x="0" y="0" width="200" height="90" rx="45" fill="none" stroke="#f97316" stroke-width="4"/>
-    <text x="100" y="38" font-size="18" font-weight="800" text-anchor="middle" fill="#ea580c">Hotels</text>
-    <text x="100" y="70" font-size="36" text-anchor="middle">Hotel</text>
-  </g>
+                <!-- Center Vegras -->
+                <rect class="flow-rect" x="350" y="90" width="500" height="220" rx="30" fill="url(#vegras-grad)" stroke="#f97316" stroke-width="5" filter="url(#shadow)"/>
+                <defs>
+                    <radialGradient id="vegras-grad" cx="30%" cy="30%" r="70%">
+                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                        <stop offset="60%" style="stop-color:#34d399;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+                    </radialGradient>
+                </defs>
+                <text class="flow-text glow-text" x="600" y="145" font-family="Poppins, sans-serif" font-size="70" font-weight="800" text-anchor="middle" fill="white" stroke="#ffffff" stroke-width="2" filter="url(#glow)">VEGRAS</text>
+                <text class="flow-text" x="600" y="185" font-family="Poppins, sans-serif" font-size="16" text-anchor="middle" fill="#f9fafb" font-weight="600">Your Trusted Supply Partner</text>
+                <text class="flow-text" x="600" y="215" font-family="Poppins, sans-serif" font-size="14" text-anchor="middle" fill="#f9fafb" font-style="italic">Connecting Farms to Tables Seamlessly</text>
+                <text class="flow-text" x="600" y="245" font-family="Poppins, sans-serif" font-size="12" text-anchor="middle" fill="#f9fafb" opacity="0.8">Fresh • Reliable • Sustainable</text>
 
-  <!-- Restaurants -->
-  <g transform="translate(1100,250)">
-    <rect x="0" y="0" width="200" height="90" rx="45" fill="#fff7ed"/>
-    <rect x="0" y="0" width="200" height="90" rx="45" fill="none" stroke="#f97316" stroke-width="4"/>
-    <text x="100" y="38" font-size="18" font-weight="800" text-anchor="middle" fill="#ea580c">Restaurants</text>
-    <text x="100" y="70" font-size="36" text-anchor="middle">Plate</text>
-  </g>
+               <!-- Right Side - Customers (fixed positions - no overlap) -->
+    <rect class="flow-rect" x="1140" y="140" width="180" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+    <text class="flow-text glow-text" x="1230" y="170" font-size="15" font-weight="700" text-anchor="middle" fill="#f97316">Hotels</text>
+    <text class="flow-text" x="1230" y="195" font-size="28" text-anchor="middle" fill="#ea580c">Hotel</text>
 
-  <!-- Caterers -->
-  <g transform="translate(1100,350)">
-    <rect x="0" y="0" width="200" height="90" rx="45" fill="#fff7ed"/>
-    <rect x="0" y="0" width="200" height="90" rx="45" fill="none" stroke="#f97316" stroke-width="4"/>
-    <text x="100" y="38" font-size="18" font-weight="800" text-anchor="middle" fill="#ea580c">Caterers</text>
-    <text x="100" y="70" font-size="36" text-anchor="middle">Cooking Pot</text>
-  </g>
+    <rect class="flow-rect" x="1140" y="240" width="180" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+    <text class="flow-text glow-text" x="1230" y="270" font-size="15" font-weight="700" text-anchor="middle" fill="#f97316">Restaurants</text>
+    <text class="flow-text" x="1230" y="295" font-size="28" text-anchor="middle" fill="#ea580c">Plate</text>
 
-  <!-- Vendor Stores -->
-  <g transform="translate(1100,450)">
-    <rect x="0" y="0" width="200" height="90" rx="45" fill="#fff7ed"/>
-    <rect x="0" y="0" width="200" height="90" rx="45" fill="none" stroke="#f97316" stroke-width="4"/>
-    <text x="100" y="38" font-size="18" font-weight="800" text-anchor="middle" fill="#ea580c">Vendor Stores</text>
-    <text x="100" y="70" font-size="36" text-anchor="middle">Store</text>
-  </g>
+    <rect class="flow-rect" x="1140" y="340" width="180" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+    <text class="flow-text glow-text" x="1230" y="370" font-size="15" font-weight="700" text-anchor="middle" fill="#f97316">Caterers</text>
+    <text class="flow-text" x="1230" y="395" font-size="28" text-anchor="middle" fill="#ea580c">Cooking Pot</text>
 
-  <!-- GREEN CURVED ARROWS (Left → Center) -->
-  <path d="M300 230 Q400 180, 450 230" stroke="#10b981" stroke-width="7" fill="none" marker-end="url(#greenarrow)"/>
-  <path d="M300 350 Q400 300, 450 300" stroke="#10b981" stroke-width="7" fill="none" marker-end="url(#greenarrow)"/>
-  <path d="M300 470 Q400 520, 450 470" stroke="#10b981" stroke-width="7" fill="none" marker-end="url(#greenarrow)"/>
+    <rect class="flow-rect" x="1140" y="440" width="180" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
+    <text class="flow-text glow-text" x="1230" y="470" font-size="15" font-weight="700" text-anchor="middle" fill="#f97316">Vendor Store</text>
+    <text class="flow-text" x="1230" y="495" font-size="28" text-anchor="middle" fill="#ea580c">Store</text>
+                <!-- Arrows from Suppliers to Vegras (Green, curved for attractiveness) -->
+                <!-- Mandi to Vegras -->
+                <path class="flow-path" d="M200 140 Q350 80 500 140" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
+                <!-- Farmers to Vegras -->
+                <path class="flow-path" d="M200 215 Q350 260 500 215" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
+                <!-- Imported to Vegras -->
+                <path class="flow-path" d="M200 290 Q350 330 500 290" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
 
-  <!-- ORANGE CURVED ARROWS (Center → Right) -->
-  <path d="M950 200 Q1050 150, 1100 200" stroke="#f97316" stroke-width="7" fill="none" marker-end="url(#orangearrow)"/>
-  <path d="M950 300 Q1050 300, 1100 300" stroke="#f97316" stroke-width="7" fill="none" marker-end="url(#orangearrow)"/>
-  <path d="M950 400 Q1050 450, 1100 400" stroke="#f97316" stroke-width="7" fill="none" marker-end="url(#orangearrow)"/>
-  <path d="M950 500 Q1050 550, 1100 500" stroke="#f97316" stroke-width="7" fill="none" marker-end="url(#orangearrow)"/>
+                <!-- Arrows from Vegras to Customers (Orange, curved) -->
+                <!-- Vegras to Hotels -->
+                <path class="flow-path" d="M850 140 Q1000 80 1150 140" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+                <!-- Vegras to Restaurants -->
+                <path class="flow-path" d="M850 215 Q1000 260 1150 215" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+                <!-- Vegras to Caterers -->
+                <path class="flow-path" d="M850 290 Q1000 330 1150 290" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
+                <!-- Vegras to Vendor -->
+                <path class="flow-path" d="M850 365 Q1000 410 1150 365" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
 
-  <!-- Arrow Markers -->
-  <defs>
-    <marker id="greenarrow" markerWidth="20" markerHeight="20" refX="15" refY="6" orient="auto">
-      <path d="M0,0 L18,6 L0,12 Z" fill="#10b981"/>
-    </marker>
-    <marker id="orangearrow" markerWidth="20" markerHeight="20" refX="15" refY="6" orient="auto">
-      <path d="M0,0 L18,6 L0,12 Z" fill="#f97316"/>
-    </marker>
-  </defs>
-
-</svg>
+                <!-- Decorative elements for attractiveness -->
+                <circle cx="600" cy="150" r="100" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="10,10" opacity="0.4" filter="url(#glow)"/>
+                <circle cx="600" cy="150" r="50" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" filter="url(#glow)"/>
+                <ellipse cx="600" cy="200" rx="200" ry="20" fill="none" stroke="#10b981" stroke-width="1" opacity="0.2"/>
+            </svg>
         </div>
     </section>
     <!-- Products Section -->
