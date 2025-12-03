@@ -366,101 +366,146 @@
                 <div class="nav-dot" data-slide="3"></div>
             </div>
         </div>
-      <!-- Add this section right after your closing </section> of the hero slider -->
-<section class="py-20 bg-gradient-to-b from-pink-50 to-white">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-        <!-- Main Title -->
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-16">
+     <!-- Animated Vegras Ecosystem Section -->
+<section class="py-24 bg-gradient-to-b from-pink-50 via-white to-pink-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-center text-4xl md:text-5xl font-bold text-gray-800 mb-20 opacity-0 translate-y-10" 
+            style="animation: fadeUp 1s forwards 0.3s;">
             Building a Wide Network of <span class="text-orange-600">Sellers & Customers</span>
         </h2>
 
-        <div class="relative">
-            <!-- Central Vegras Logo -->
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <div class="bg-gradient-to-r from-green-500 to-green-600 text-white text-5xl md:text-7xl font-black px-12 py-8 rounded-3xl shadow-2xl border-4 border-white">
+        <div class="relative h-96 md:h-[600px] flex items-center justify-center">
+            <!-- Central VEGRAS Badge -->
+            <div class="vegras-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 scale-0"
+                 style="animation: zoomIn 1.2s forwards 0.6s;">
+                <div class="bg-gradient-to-r from-green-500 via-green-400 to-lime-500 text-white text-6xl md:text-8xl font-black px-16 py-10 rounded-3xl shadow-2xl border-8 border-white">
                     VEGRAS
                 </div>
             </div>
 
-            <!-- Sellers Side (Left) -->
-            <div class="flex flex-col items-end pr-8 md:pr-20 space-y-12 relative">
-                <!-- Top Row -->
-                <div class="flex items-center gap-6">
-                    <div class="flex -space-x-4">
-                        <img src="https://via.placeholder.com/80/10B981/FFFFFF?text=Farm" class="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg" alt="Fresh Produce">
-                        <img src="https://via.placeholder.com/80/10B981/FFFFFF?text=Meat" class="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg" alt="Poultry">
-                    </div>
+            <!-- Left Side: Sellers -->
+            <div class="absolute left-0 md:left-10 space-y-16 md:space-y-20 opacity-0" 
+                 style="animation: slideInLeft 1.4s forwards 1s;">
+                <!-- Farm & Mandi -->
+                <div class="flex items-center gap-6 justify-end">
                     <div class="text-right">
-                        <div class="bg-gradient-to-r from-green-500 to-green-400 text-white px-6 py-3 rounded-full font-bold shadow-lg">Mandi</div>
-                        <div class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-3 rounded-full font-bold shadow-lg mt-3">Farmers</div>
+                        <div class="bg-gradient-to-r from-green-600 to-green-500 text-white px-8 py-4 rounded-full font-bold shadow-lg inline-block animate-pulse-slow">
+                            Mandi
+                        </div>
+                        <div class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-8 py-4 rounded-full font-bold shadow-lg mt-4 inline-block">
+                            Farmers
+                        </div>
+                    </div>
+                    <div class="flex -space-x-6">
+                        <img src="https://via.placeholder.com/100/10B981/FFFFFF?text=Vegetables" class="w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-white shadow-xl hover:scale-110 transition-transform" alt="Farm">
+                        <img src="https://via.placeholder.com/100/EF4444/FFFFFF?text=Meat" class="w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-white shadow-xl hover:scale-110 transition-transform" alt="Poultry">
                     </div>
                 </div>
 
-                <!-- Middle Row -->
-                <div class="flex items-center gap-6">
+                <!-- National Brands -->
+                <div class="flex items-center gap-8 justify-end">
+                    <div class="bg-pink-100 text-pink-700 px-8 py-4 rounded-full font-bold shadow-lg">
+                        NATIONAL
+                    </div>
                     <div class="flex items-center gap-4">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Amul_India_logo.svg/640px-Amul_India_logo.svg.png" class="w-16 h-16 rounded-full" alt="Amul">
-                        <img src="https://via.placeholder.com/60" class="w-14 h-14 rounded-full" alt="ITC">
-                        <span class="text-pink-600 font-bold text-sm">VEEBA</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Amul_India_logo.svg/200px-Amul_India_logo.svg.png" class="w-16 h-16 rounded-full" alt="Amul">
+                        <img src="https://via.placeholder.com/60/0066CC/FFFFFF?text=ITC" class="w-14 h-14 rounded-full" alt="ITC">
+                        <span class="text-pink-600 font-bold text-lg">VEEBA</span>
                     </div>
-                    <div class="bg-pink-100 text-pink-700 px-6 py-3 rounded-full font-bold shadow">NATIONAL</div>
                 </div>
 
-                <!-- Bottom Row -->
-                <div class="flex items-center gap-6">
-                    <div class="flex -space-x-3">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Barilla_logo.svg/640px-Barilla_logo.svg.png" class="w-14 h-14 rounded-full border-4 border-white" alt="Barilla">
-                        <img src="https://via.placeholder.com/60/FF0000/FFFFFF?text=Lee Kum Kee" class="w-14 h-14 rounded-full border-4 border-white" alt="Lee Kum Kee">
-                        <img src="https://via.placeholder.com/60/E67E22/FFFFFF?text=Borges" class="w-14 h-14 rounded-full border-4 border-white" alt="Borges">
+                <!-- Imported -->
+                <div class="flex items-center gap-6 justify-end">
+                    <div class="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-8 py-4 rounded-full font-bold shadow-lg">
+                        IMPORTED
                     </div>
-                    <div class="bg-gradient-to-r from-green-600 to-green-500 text-white px-6 py-3 rounded-full font-bold shadow-lg">IMPORTED</div>
+                    <div class="flex -space-x-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Barilla_logo.svg/180px-Barilla_logo.svg.png" class="w-16 h-16 rounded-full border-4 border-white" alt="Barilla">
+                        <img src="https://via.placeholder.com/60/FF0000/FFFFFF?text=LKK" class="w-16 h-16 rounded-full border-4 border-white" alt="Lee Kum Kee">
+                        <img src="https://via.placeholder.com/60/E67E22/FFFFFF?text=Borges" class="w-16 h-16 rounded-full border-4 border-white" alt="Borges">
+                    </div>
                 </div>
             </div>
 
-            <!-- Customers Side (Right) -->
-            <div class="flex flex-col items-start pl-8 md:pl-20 space-y-12 absolute top-0 left-1/2 ml-10">
-                <!-- Top Row -->
+            <!-- Right Side: Customers -->
+            <div class="absolute right-0 md:right-10 space-y-16 md:space-y-20 opacity-0" 
+                 style="animation: slideInRight 1.4s forwards 1s;">
+                <!-- Dining & Hotels -->
                 <div class="flex items-center gap-6">
-                    <div class="bg-pink-100 text-pink-700 px-6 py-3 rounded-full font-bold shadow">DINING</div>
-                    <div class="flex -space-x-3">
-                        <img src="https://via.placeholder.com/70/000000/FFFFFF?text=BBQ Nation" class="w-16 h-16 md:w-18 md:h-18 rounded-full border-4 border-white shadow-lg" alt="BBQ Nation">
-                        <img src="https://via.placeholder.com/70?text=Good Bowl" class="w-16 h-16 md:w-18 md:h-18 rounded-full border-4 border-white shadow-lg" alt="Good Bowl">
-                        <div class="bg-green-600 text-white w-16 h-16 md:w-18 md:h-18 rounded-full border-4 border-white shadow-lg flex items-center justify-center font-bold text-xs">Hotels</div>
+                    <div class="flex -space-x-6">
+                        <img src="https://via.placeholder.com/100/000000/FFFFFF?text=BBQ+Nation" class="w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-white shadow-xl hover:scale-110 transition-transform" alt="BBQ Nation">
+                        <img src="https://via.placeholder.com/100/22C55E/FFFFFF?text=Good+Bowl" class="w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-white shadow-xl hover:scale-110 transition-transform" alt="Good Bowl">
+                        <div class="bg-green-700 text-white w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-white shadow-xl flex items-center justify-center font-bold text-xs">Hotels</div>
+                    </div>
+                    <div class="bg-pink-100 text-pink-700 px-8 py-4 rounded-full font-bold shadow-lg">
+                        DINING
                     </div>
                 </div>
 
-                <!-- Middle Row -->
-                <div class="flex items-center gap-6">
-                    <div class="bg-orange-100 text-orange-700 px-6 py-3 rounded-full font-bold shadow">QSRs</div>
-                    <div class="flex -space-x-3">
-                        <img src="https://via.placeholder.com/70?text=Howdy" class="w-14 h-14 rounded-full border-4 border-white" alt="Howdy">
-                        <img src="https://via.placeholder.com/70/000000/FFFFFF?text=Cafe Arabia" class="w-14 h-14 rounded-full border-4 border-white" alt="Cafe Arabia">
-                        <span class="bg-gray-800 text-white px-4 py-2 rounded-full text-xs font-bold">NOMAD</span>
+                <!-- QSRs -->
+                <div class="flex items-center gap-8">
+                    <div class="flex -space-x-4">
+                        <img src="https://via.placeholder.com/70/FF6B6B/FFFFFF?text=Howdy" class="w-16 h-16 rounded-full border-4 border-white" alt="Howdy">
+                        <img src="https://via.placeholder.com/70/1F2937/FFFFFF?text=Cafe+Arabia" class="w-16 h-16 rounded-full border-4 border-white" alt="Cafe Arabia">
+                        <span class="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-bold">NOMAD</span>
+                    </div>
+                    <div class="bg-orange-100 text-orange-700 px-8 py-4 rounded-full font-bold shadow-lg">
+                        QSRs
                     </div>
                 </div>
 
-                <!-- Bottom Row -->
+                <!-- Cloud Kitchens & Caterers -->
                 <div class="flex flex-col items-start gap-6">
                     <div class="flex items-center gap-6">
-                        <div class="bg-yellow-100 text-yellow-700 px-6 py-3 rounded-full font-bold shadow">CLOUD KITCHENS</div>
-                        <img src="https://via.placeholder.com/70/FF0000/FFFFFF?text=Rebel" class="w-14 h-14 rounded-full border-4 border-white" alt="Rebel Foods">
+                        <img src="https://via.placeholder.com/80/FF0000/FFFFFF?text=Rebel" class="w-20 h-20 rounded-full border-4 border-white shadow-xl" alt="Rebel Foods">
+                        <div class="bg-yellow-100 text-yellow-700 px-8 py-4 rounded-full font-bold shadow-lg">
+                            CLOUD KITCHENS
+                        </div>
                     </div>
-                    <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-bold shadow-lg">Caterers</div>
-                    <div class="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-full font-bold shadow-lg">Vendor</div>
+                    <div class="bg-gradient-to-r from-orange-600 to-red-600 text-white px-10 py-4 rounded-full font-bold shadow-xl">
+                        Caterers
+                    </div>
+                    <div class="bg-gradient-to-r from-green-700 to-emerald-700 text-white px-10 py-4 rounded-full font-bold shadow-xl">
+                        Vendor
+                    </div>
                 </div>
             </div>
 
-            <!-- Dotted Curved Lines (Decorative) -->
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 600">
-                <path d="M200,150 Q400,100 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
-                <path d="M200,300 Q400,350 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
-                <path d="M200,450 Q400,500 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
-                <path d="M1000,150 Q800,100 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
-                <path d="M1000,300 Q800,350 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
-                <path d="M1000,450 Q800,500 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
+            <!-- Animated Dotted Lines -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-0" 
+                 style="animation: fadeIn 2s forwards 1.8s;">
+                <path d="M150,180 Q300,100 600,300" stroke="#fdb8c0" stroke-width="4" fill="none" stroke-dasharray="10,10">
+                    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" fill="freeze"/>
+                </path>
+                <path d="M150,300 Q300,400 600,300" stroke="#fdb8c0" stroke-width="4" fill="none" stroke-dasharray="10,10">
+                    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" fill="freeze" begin="0.3s"/>
+                </path>
+                <path d="M150,420 Q300,500 600,300" stroke="#fdb8c0" stroke-width="4" fill="none" stroke-dasharray="10,10">
+                    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" fill="freeze" begin="0.6s"/>
+                </path>
+                <path d="M1050,180 Q900,100 600,300" stroke="#fdb8c0" stroke-width="4" fill="none" stroke-dasharray="10,10">
+                    <animate attributeName="stroke-dashoffset" from="-1000" to="0" dur="3s" fill="freeze"/>
+                </path>
+                <path d="M1050,300 Q900,400 600,300" stroke="#fdb8c0" stroke-width="4" fill="none" stroke-dasharray="10,10">
+                    <animate attributeName="stroke-dashoffset" from="-1000" to="0" dur="3s" fill="freeze" begin="0.3s"/>
+                </path>
+                <path d="M1050,420 Q900,500 600,300" stroke="#fdb8c0" stroke-width="4" fill="none" stroke-dasharray="10,10">
+                    <animate attributeName="stroke-dashoffset" from="-1000" to="0" dur="3s" fill="freeze" begin="0.6s"/>
+                </path>
             </svg>
         </div>
     </div>
+</section>
+
+<!-- Animation Keyframes -->
+<style>
+    @keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideInLeft { from { opacity:0; transform:translateX(-100px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes slideInRight { from { opacity:0; transform:translateX(100px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes zoomIn { from { transform:scale(0) translate(-50%, -50%); opacity:0; } to { transform:scale(1) translate(-50%, -50%); opacity:1; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    .animate-pulse-slow { animation: pulse 4s infinite; }
+</style>
     </section>
     <!-- Products Section -->
     <section id="products" class="py-20 bg-gray-100">
