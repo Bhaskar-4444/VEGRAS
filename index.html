@@ -366,121 +366,101 @@
                 <div class="nav-dot" data-slide="3"></div>
             </div>
         </div>
-        <!-- Blank space with flowchart and particles -->
-        <div class="blank-space">
-            <div id="particles-js"></div>
-            <svg class="flowchart-svg" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Background -->
-                <rect width="1200" height="300" fill="url(#bg-grad)" rx="20" opacity="0.9"/>
+      <!-- Add this section right after your closing </section> of the hero slider -->
+<section class="py-20 bg-gradient-to-b from-pink-50 to-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <!-- Main Title -->
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-16">
+            Building a Wide Network of <span class="text-orange-600">Sellers & Customers</span>
+        </h2>
 
-                <!-- Background gradient -->
-                <defs>
-                    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#a7f3d0;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
+        <div class="relative">
+            <!-- Central Vegras Logo -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                <div class="bg-gradient-to-r from-green-500 to-green-600 text-white text-5xl md:text-7xl font-black px-12 py-8 rounded-3xl shadow-2xl border-4 border-white">
+                    VEGRAS
+                </div>
+            </div>
 
-                <!-- Arrow marker definitions -->
-                <defs>
-                    <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
-                        <path d="M0,0 L0,6 L10,3 z" fill="#10b981" opacity="0.9"/>
-                    </marker>
-                    <marker id="arrow-orange" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
-                        <path d="M0,0 L0,6 L10,3 z" fill="#f97316" opacity="0.9"/>
-                    </marker>
-                    <filter id="shadow">
-                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
-                    </filter>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                        <feMerge> 
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                </defs>
+            <!-- Sellers Side (Left) -->
+            <div class="flex flex-col items-end pr-8 md:pr-20 space-y-12 relative">
+                <!-- Top Row -->
+                <div class="flex items-center gap-6">
+                    <div class="flex -space-x-4">
+                        <img src="https://via.placeholder.com/80/10B981/FFFFFF?text=Farm" class="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg" alt="Fresh Produce">
+                        <img src="https://via.placeholder.com/80/10B981/FFFFFF?text=Meat" class="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg" alt="Poultry">
+                    </div>
+                    <div class="text-right">
+                        <div class="bg-gradient-to-r from-green-500 to-green-400 text-white px-6 py-3 rounded-full font-bold shadow-lg">Mandi</div>
+                        <div class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-3 rounded-full font-bold shadow-lg mt-3">Farmers</div>
+                    </div>
+                </div>
 
-                <!-- Supplier Boxes (Left, positioned lower) -->
-                <!-- Mandi -->
-                <rect class="flow-rect" x="40" y="110" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
-                <defs>
-                    <radialGradient id="green-grad" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" style="stop-color:#ecfdf5;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#d1fae5;stop-opacity:1" />
-                    </radialGradient>
-                </defs>
-                <text class="flow-text glow-text" x="120" y="135" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Mandi</text>
-                <text class="flow-text" x="120" y="155" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🛒</text>
+                <!-- Middle Row -->
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Amul_India_logo.svg/640px-Amul_India_logo.svg.png" class="w-16 h-16 rounded-full" alt="Amul">
+                        <img src="https://via.placeholder.com/60" class="w-14 h-14 rounded-full" alt="ITC">
+                        <span class="text-pink-600 font-bold text-sm">VEEBA</span>
+                    </div>
+                    <div class="bg-pink-100 text-pink-700 px-6 py-3 rounded-full font-bold shadow">NATIONAL</div>
+                </div>
 
-                <!-- Farmers -->
-                <rect class="flow-rect" x="40" y="185" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
-                <text class="flow-text glow-text" x="120" y="210" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Farmers</text>
-                <text class="flow-text" x="120" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🌾</text>
+                <!-- Bottom Row -->
+                <div class="flex items-center gap-6">
+                    <div class="flex -space-x-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Barilla_logo.svg/640px-Barilla_logo.svg.png" class="w-14 h-14 rounded-full border-4 border-white" alt="Barilla">
+                        <img src="https://via.placeholder.com/60/FF0000/FFFFFF?text=Lee Kum Kee" class="w-14 h-14 rounded-full border-4 border-white" alt="Lee Kum Kee">
+                        <img src="https://via.placeholder.com/60/E67E22/FFFFFF?text=Borges" class="w-14 h-14 rounded-full border-4 border-white" alt="Borges">
+                    </div>
+                    <div class="bg-gradient-to-r from-green-600 to-green-500 text-white px-6 py-3 rounded-full font-bold shadow-lg">IMPORTED</div>
+                </div>
+            </div>
 
-                <!-- Imported -->
-                <rect class="flow-rect" x="40" y="260" width="160" height="60" rx="20" fill="url(#green-grad)" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
-                <text class="flow-text glow-text" x="120" y="285" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#10b981" filter="url(#glow)">Imported</text>
-                <text class="flow-text" x="120" y="305" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#059669">🌍</text>
+            <!-- Customers Side (Right) -->
+            <div class="flex flex-col items-start pl-8 md:pl-20 space-y-12 absolute top-0 left-1/2 ml-10">
+                <!-- Top Row -->
+                <div class="flex items-center gap-6">
+                    <div class="bg-pink-100 text-pink-700 px-6 py-3 rounded-full font-bold shadow">DINING</div>
+                    <div class="flex -space-x-3">
+                        <img src="https://via.placeholder.com/70/000000/FFFFFF?text=BBQ Nation" class="w-16 h-16 md:w-18 md:h-18 rounded-full border-4 border-white shadow-lg" alt="BBQ Nation">
+                        <img src="https://via.placeholder.com/70?text=Good Bowl" class="w-16 h-16 md:w-18 md:h-18 rounded-full border-4 border-white shadow-lg" alt="Good Bowl">
+                        <div class="bg-green-600 text-white w-16 h-16 md:w-18 md:h-18 rounded-full border-4 border-white shadow-lg flex items-center justify-center font-bold text-xs">Hotels</div>
+                    </div>
+                </div>
 
-                <!-- Center Vegras -->
-                <rect class="flow-rect" x="350" y="90" width="500" height="220" rx="30" fill="url(#vegras-grad)" stroke="#f97316" stroke-width="5" filter="url(#shadow)"/>
-                <defs>
-                    <radialGradient id="vegras-grad" cx="30%" cy="30%" r="70%">
-                        <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
-                        <stop offset="60%" style="stop-color:#34d399;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
-                    </radialGradient>
-                </defs>
-                <text class="flow-text glow-text" x="600" y="145" font-family="Poppins, sans-serif" font-size="70" font-weight="800" text-anchor="middle" fill="white" stroke="#ffffff" stroke-width="2" filter="url(#glow)">VEGRAS</text>
-                <text class="flow-text" x="600" y="185" font-family="Poppins, sans-serif" font-size="16" text-anchor="middle" fill="#f9fafb" font-weight="600">Your Trusted Supply Partner</text>
-                <text class="flow-text" x="600" y="215" font-family="Poppins, sans-serif" font-size="14" text-anchor="middle" fill="#f9fafb" font-style="italic">Connecting Farms to Tables Seamlessly</text>
-                <text class="flow-text" x="600" y="245" font-family="Poppins, sans-serif" font-size="12" text-anchor="middle" fill="#f9fafb" opacity="0.8">Fresh • Reliable • Sustainable</text>
+                <!-- Middle Row -->
+                <div class="flex items-center gap-6">
+                    <div class="bg-orange-100 text-orange-700 px-6 py-3 rounded-full font-bold shadow">QSRs</div>
+                    <div class="flex -space-x-3">
+                        <img src="https://via.placeholder.com/70?text=Howdy" class="w-14 h-14 rounded-full border-4 border-white" alt="Howdy">
+                        <img src="https://via.placeholder.com/70/000000/FFFFFF?text=Cafe Arabia" class="w-14 h-14 rounded-full border-4 border-white" alt="Cafe Arabia">
+                        <span class="bg-gray-800 text-white px-4 py-2 rounded-full text-xs font-bold">NOMAD</span>
+                    </div>
+                </div>
 
-                <!-- Customer Boxes (Right, positioned lower) -->
-                <!-- Hotels -->
-                <rect class="flow-rect" x="990" y="110" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
-                <defs>
-                    <radialGradient id="orange-grad" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" style="stop-color:#fefce8;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#fef3c7;stop-opacity:1" />
-                    </radialGradient>
-                </defs>
-                <text class="flow-text glow-text" x="1070" y="135" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Hotels</text>
-                <text class="flow-text" x="1070" y="155" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🏨</text>
+                <!-- Bottom Row -->
+                <div class="flex flex-col items-start gap-6">
+                    <div class="flex items-center gap-6">
+                        <div class="bg-yellow-100 text-yellow-700 px-6 py-3 rounded-full font-bold shadow">CLOUD KITCHENS</div>
+                        <img src="https://via.placeholder.com/70/FF0000/FFFFFF?text=Rebel" class="w-14 h-14 rounded-full border-4 border-white" alt="Rebel Foods">
+                    </div>
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-bold shadow-lg">Caterers</div>
+                    <div class="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-full font-bold shadow-lg">Vendor</div>
+                </div>
+            </div>
 
-                <!-- Restaurants -->
-                <rect class="flow-rect" x="990" y="185" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
-                <text class="flow-text glow-text" x="1070" y="210" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Restaurants</text>
-                <text class="flow-text" x="1070" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🍽️</text>>
-
-                <!-- Vendor -->
-                <rect class="flow-rect" x="990" y="220" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
-                <text class="flow-text glow-text" x="1070" y="245" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Vendor</text>
-                <text class="flow-text" x="1070" y="265" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🏪</text>
-
-                <!-- Arrows from Suppliers to Vegras (Green, curved for attractiveness) -->
-                <!-- Mandi to Vegras -->
-                <path class="flow-path" d="M200 140 Q350 80 500 140" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
-                <!-- Farmers to Vegras -->
-                <path class="flow-path" d="M200 215 Q350 260 500 215" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
-                <!-- Imported to Vegras -->
-                <path class="flow-path" d="M200 290 Q350 330 500 290" stroke="#10b981" stroke-width="4" fill="none" marker-end="url(#arrow-green)" filter="url(#glow)"/>
-
-                <!-- Arrows from Vegras to Customers (Orange, curved) -->
-                <!-- Vegras to Hotels -->
-                <path class="flow-path" d="M850 140 Q1000 80 1150 140" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
-                <!-- Vegras to Restaurants -->
-                <path class="flow-path" d="M850 215 Q1000 260 1150 215" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
-                <!-- Vegras to Vendor -->
-                <path class="flow-path" d="M850 250 Q1000 180 1150 250" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
-
-                <!-- Decorative elements for attractiveness -->
-                <circle cx="600" cy="150" r="100" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="10,10" opacity="0.4" filter="url(#glow)"/>
-                <circle cx="600" cy="150" r="50" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" filter="url(#glow)"/>
-                <ellipse cx="600" cy="200" rx="200" ry="20" fill="none" stroke="#10b981" stroke-width="1" opacity="0.2"/>
+            <!-- Dotted Curved Lines (Decorative) -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 600">
+                <path d="M200,150 Q400,100 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
+                <path d="M200,300 Q400,350 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
+                <path d="M200,450 Q400,500 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
+                <path d="M1000,150 Q800,100 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
+                <path d="M1000,300 Q800,350 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
+                <path d="M1000,450 Q800,500 600,300" stroke="#f8b4b4" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
             </svg>
         </div>
+    </div>
     </section>
     <!-- Products Section -->
     <section id="products" class="py-20 bg-gray-100">
