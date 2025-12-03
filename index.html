@@ -145,6 +145,16 @@
         .flowchart-svg {
             width: 100%;
             height: 100%;
+            z-index: 2;
+            position: relative;
+        }
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
         /* Flowchart Animations */
         .flow-rect {
@@ -356,8 +366,9 @@
                 <div class="nav-dot" data-slide="3"></div>
             </div>
         </div>
-        <!-- Blank space with flowchart -->
+        <!-- Blank space with flowchart and particles -->
         <div class="blank-space">
+            <div id="particles-js"></div>
             <svg class="flowchart-svg" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
                 <!-- Background -->
                 <rect width="1200" height="300" fill="url(#bg-grad)" rx="20" opacity="0.9"/>
@@ -441,12 +452,7 @@
                 <!-- Restaurants -->
                 <rect class="flow-rect" x="990" y="185" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
                 <text class="flow-text glow-text" x="1070" y="210" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Restaurants</text>
-                <text class="flow-text" x="1070" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🍽️</text>
-
-                <!-- Caterers -->
-                <rect class="flow-rect" x="990" y="260" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
-                <text class="flow-text glow-text" x="1070" y="285" font-family="Poppins, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#f97316" filter="url(#glow)">Caterers</text>
-                <text class="flow-text" x="1070" y="305" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🍲</text>
+                <text class="flow-text" x="1070" y="230" font-family="Poppins, sans-serif" font-size="24" text-anchor="middle" fill="#ea580c">🍽️</text>>
 
                 <!-- Vendor -->
                 <rect class="flow-rect" x="990" y="220" width="160" height="60" rx="20" fill="url(#orange-grad)" stroke="#f97316" stroke-width="3" filter="url(#shadow)"/>
@@ -466,8 +472,6 @@
                 <path class="flow-path" d="M850 140 Q1000 80 1150 140" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
                 <!-- Vegras to Restaurants -->
                 <path class="flow-path" d="M850 215 Q1000 260 1150 215" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
-                <!-- Vegras to Caterers -->
-                <path class="flow-path" d="M850 290 Q1000 330 1150 290" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
                 <!-- Vegras to Vendor -->
                 <path class="flow-path" d="M850 250 Q1000 180 1150 250" stroke="#f97316" stroke-width="4" fill="none" marker-end="url(#arrow-orange)" filter="url(#glow)"/>
 
@@ -698,6 +702,8 @@
             </button>
         </div>
     </div>
+    <!-- Particles.js Library -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Slider functionality
         let currentSlide = 0;
@@ -796,6 +802,63 @@
         window.onload = () => {
             // Trigger flowchart animation after a delay
             setTimeout(animateFlowchart, 500);
+
+            // Particles.js config
+            particlesJS.load('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 60,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#d1fae5"
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.4,
+                        "random": true
+                    },
+                    "size": {
+                        "value": 4,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#a7f3d0",
+                        "opacity": 0.3,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": false
+                        },
+                        "resize": true
+                    }
+                },
+                "retina_detect": true
+            });
 
             // Popup logic
             const popup = document.getElementById('popup');
