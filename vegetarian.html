@@ -20,24 +20,27 @@
         .quantity-btn {
             background: linear-gradient(to right, #f97316, #16a34a);
             color: white;
-            width: 2rem;
-            height: 2rem;
+            width: 1.5rem;
+            height: 1.5rem;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: background 0.3s;
+            font-size: 0.875rem;
         }
         .quantity-btn:hover {
             background: linear-gradient(to right, #ea580c, #15803d);
         }
         .quantity-input {
-            width: 3rem;
+            width: 2.5rem;
             text-align: center;
             border: 1px solid #d1d5db;
             border-radius: 4px;
-            margin: 0 0.5rem;
+            margin: 0 0.25rem;
+            height: 1.5rem;
+            font-size: 0.875rem;
         }
         #authModal {
             display: none;
@@ -68,6 +71,13 @@
             right: 10px;
             cursor: pointer;
             font-size: 1.5rem;
+        }
+        .product-card {
+            transition: transform 0.2s;
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -115,712 +125,983 @@
     </div>
 
     <!-- Vegetarian Items Section -->
-    <section id="vegetarian" class="py-16 bg-white">
+    <section id="vegetarian" class="py-16 bg-white" style="padding-top: 5rem;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Vegetarian Items</h2>
-            <div class="overflow-x-auto">
-                <table class="min-w-full bg-white border rounded-lg">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-900">Hindi Name</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-900">English Name</th>
-                            <th class="px-6 py-3 text-center text-sm font-medium text-gray-900">Mandi Rate (₹/kg)</th>
-                            <th class="px-6 py-3 text-center text-sm font-medium text-gray-900">My Rate (₹/kg)</th>
-                            <th class="px-6 py-3 text-center text-sm font-medium text-gray-900">Quantity (in kg)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="px-6 py-4 border-b">आलू</td>
-                            <td class="px-6 py-4 border-b">Potato</td>
-                            <td class="px-6 py-4 border-b text-center">30</td>
-                            <td class="px-6 py-4 border-b text-center">25</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('potato', -1)">-</button>
-                                    <input type="number" id="potato-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('potato', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">प्याज़</td>
-                            <td class="px-6 py-4 border-b">Onion</td>
-                            <td class="px-6 py-4 border-b text-center">40</td>
-                            <td class="px-6 py-4 border-b text-center">35</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('onion', -1)">-</button>
-                                    <input type="number" id="onion-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('onion', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">टमाटर</td>
-                            <td class="px-6 py-4 border-b">Tomato</td>
-                            <td class="px-6 py-4 border-b text-center">50</td>
-                            <td class="px-6 py-4 border-b text-center">45</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('tomato', -1)">-</button>
-                                    <input type="number" id="tomato-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('tomato', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">बैंगन</td>
-                            <td class="px-6 py-4 border-b">Brinjal / Eggplant</td>
-                            <td class="px-6 py-4 border-b text-center">60</td>
-                            <td class="px-6 py-4 border-b text-center">55</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('brinjal', -1)">-</button>
-                                    <input type="number" id="brinjal-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('brinjal', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">भिंडी</td>
-                            <td class="px-6 py-4 border-b">Lady Finger / Okra</td>
-                            <td class="px-6 py-4 border-b text-center">70</td>
-                            <td class="px-6 py-4 border-b text-center">65</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('okra', -1)">-</button>
-                                    <input type="number" id="okra-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('okra', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">लौकी</td>
-                            <td class="px-6 py-4 border-b">Bottle Gourd</td>
-                            <td class="px-6 py-4 border-b text-center">45</td>
-                            <td class="px-6 py-4 border-b text-center">40</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('bottle-gourd', -1)">-</button>
-                                    <input type="number" id="bottle-gourd-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('bottle-gourd', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">तोरई</td>
-                            <td class="px-6 py-4 border-b">Ridge Gourd / Sponge Gourd</td>
-                            <td class="px-6 py-4 border-b text-center">55</td>
-                            <td class="px-6 py-4 border-b text-center">50</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('ridge-gourd', -1)">-</button>
-                                    <input type="number" id="ridge-gourd-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('ridge-gourd', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">कद्दू</td>
-                            <td class="px-6 py-4 border-b">Pumpkin</td>
-                            <td class="px-6 py-4 border-b text-center">35</td>
-                            <td class="px-6 py-4 border-b text-center">30</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('pumpkin', -1)">-</button>
-                                    <input type="number" id="pumpkin-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('pumpkin', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">गाजर</td>
-                            <td class="px-6 py-4 border-b">Carrot</td>
-                            <td class="px-6 py-4 border-b text-center">60</td>
-                            <td class="px-6 py-4 border-b text-center">55</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('carrot', -1)">-</button>
-                                    <input type="number" id="carrot-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('carrot', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">मूली</td>
-                            <td class="px-6 py-4 border-b">Radish</td>
-                            <td class="px-6 py-4 border-b text-center">40</td>
-                            <td class="px-6 py-4 border-b text-center">35</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('radish', -1)">-</button>
-                                    <input type="number" id="radish-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('radish', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">गोभी</td>
-                            <td class="px-6 py-4 border-b">Cauliflower</td>
-                            <td class="px-6 py-4 border-b text-center">70</td>
-                            <td class="px-6 py-4 border-b text-center">65</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('cauliflower', -1)">-</button>
-                                    <input type="number" id="cauliflower-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('cauliflower', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">पत्ता गोभी</td>
-                            <td class="px-6 py-4 border-b">Cabbage</td>
-                            <td class="px-6 py-4 border-b text-center">50</td>
-                            <td class="px-6 py-4 border-b text-center">45</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('cabbage', -1)">-</button>
-                                    <input type="number" id="cabbage-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('cabbage', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">पालक</td>
-                            <td class="px-6 py-4 border-b">Spinach</td>
-                            <td class="px-6 py-4 border-b text-center">30</td>
-                            <td class="px-6 py-4 border-b text-center">25</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('spinach', -1)">-</button>
-                                    <input type="number" id="spinach-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('spinach', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">मेथी</td>
-                            <td class="px-6 py-4 border-b">Fenugreek Leaves</td>
-                            <td class="px-6 py-4 border-b text-center">40</td>
-                            <td class="px-6 py-4 border-b text-center">35</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('fenugreek', -1)">-</button>
-                                    <input type="number" id="fenugreek-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('fenugreek', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">सरसों का साग</td>
-                            <td class="px-6 py-4 border-b">Mustard Leaves</td>
-                            <td class="px-6 py-4 border-b text-center">35</td>
-                            <td class="px-6 py-4 border-b text-center">30</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('mustard-leaves', -1)">-</button>
-                                    <input type="number" id="mustard-leaves-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('mustard-leaves', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">हरा मटर</td>
-                            <td class="px-6 py-4 border-b">Green Peas</td>
-                            <td class="px-6 py-4 border-b text-center">80</td>
-                            <td class="px-6 py-4 border-b text-center">75</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('green-peas', -1)">-</button>
-                                    <input type="number" id="green-peas-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('green-peas', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">शिमला मिर्च</td>
-                            <td class="px-6 py-4 border-b">Capsicum / Bell Pepper</td>
-                            <td class="px-6 py-4 border-b text-center">90</td>
-                            <td class="px-6 py-4 border-b text-center">85</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('capsicum', -1)">-</button>
-                                    <input type="number" id="capsicum-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('capsicum', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">हरी मिर्च</td>
-                            <td class="px-6 py-4 border-b">Green Chili</td>
-                            <td class="px-6 py-4 border-b text-center">60</td>
-                            <td class="px-6 py-4 border-b text-center">55</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('green-chili', -1)">-</button>
-                                    <input type="number" id="green-chili-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('green-chili', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">अदरक</td>
-                            <td class="px-6 py-4 border-b">Ginger</td>
-                            <td class="px-6 py-4 border-b text-center">120</td>
-                            <td class="px-6 py-4 border-b text-center">115</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('ginger', -1)">-</button>
-                                    <input type="number" id="ginger-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('ginger', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">लहसुन</td>
-                            <td class="px-6 py-4 border-b">Garlic</td>
-                            <td class="px-6 py-4 border-b text-center">150</td>
-                            <td class="px-6 py-4 border-b text-center">145</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('garlic', -1)">-</button>
-                                    <input type="number" id="garlic-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('garlic', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">नींबू</td>
-                            <td class="px-6 py-4 border-b">Lemon</td>
-                            <td class="px-6 py-4 border-b text-center">80</td>
-                            <td class="px-6 py-4 border-b text-center">75</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('lemon', -1)">-</button>
-                                    <input type="number" id="lemon-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('lemon', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">धनिया पत्ता</td>
-                            <td class="px-6 py-4 border-b">Coriander Leaves</td>
-                            <td class="px-6 py-4 border-b text-center">100</td>
-                            <td class="px-6 py-4 border-b text-center">95</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('coriander', -1)">-</button>
-                                    <input type="number" id="coriander-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('coriander', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">करी पत्ता</td>
-                            <td class="px-6 py-4 border-b">Curry Leaves</td>
-                            <td class="px-6 py-4 border-b text-center">120</td>
-                            <td class="px-6 py-4 border-b text-center">115</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('curry-leaves', -1)">-</button>
-                                    <input type="number" id="curry-leaves-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('curry-leaves', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">कड़ीमूल (अरबी)</td>
-                            <td class="px-6 py-4 border-b">Colocasia / Taro Root</td>
-                            <td class="px-6 py-4 border-b text-center">65</td>
-                            <td class="px-6 py-4 border-b text-center">60</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('colocasia', -1)">-</button>
-                                    <input type="number" id="colocasia-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('colocasia', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">बीन्स</td>
-                            <td class="px-6 py-4 border-b">Beans</td>
-                            <td class="px-6 py-4 border-b text-center">75</td>
-                            <td class="px-6 py-4 border-b text-center">70</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('beans', -1)">-</button>
-                                    <input type="number" id="beans-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('beans', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">टिंडा</td>
-                            <td class="px-6 py-4 border-b">Apple Gourd / Indian Round Gourd</td>
-                            <td class="px-6 py-4 border-b text-center">55</td>
-                            <td class="px-6 py-4 border-b text-center">50</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('apple-gourd', -1)">-</button>
-                                    <input type="number" id="apple-gourd-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('apple-gourd', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">खीरा</td>
-                            <td class="px-6 py-4 border-b">Cucumber</td>
-                            <td class="px-6 py-4 border-b text-center">50</td>
-                            <td class="px-6 py-4 border-b text-center">45</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('cucumber', -1)">-</button>
-                                    <input type="number" id="cucumber-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('cucumber', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">सहजन (सहजन की फली)</td>
-                            <td class="px-6 py-4 border-b">Drumstick</td>
-                            <td class="px-6 py-4 border-b text-center">90</td>
-                            <td class="px-6 py-4 border-b text-center">85</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('drumstick', -1)">-</button>
-                                    <input type="number" id="drumstick-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('drumstick', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">चुकंदर</td>
-                            <td class="px-6 py-4 border-b">Beetroot</td>
-                            <td class="px-6 py-4 border-b text-center">60</td>
-                            <td class="px-6 py-4 border-b text-center">55</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('beetroot', -1)">-</button>
-                                    <input type="number" id="beetroot-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('beetroot', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">कटहल</td>
-                            <td class="px-6 py-4 border-b">Jackfruit</td>
-                            <td class="px-6 py-4 border-b text-center">70</td>
-                            <td class="px-6 py-4 border-b text-center">65</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('jackfruit', -1)">-</button>
-                                    <input type="number" id="jackfruit-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('jackfruit', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">सेम</td>
-                            <td class="px-6 py-4 border-b">Broad Beans</td>
-                            <td class="px-6 py-4 border-b text-center">80</td>
-                            <td class="px-6 py-4 border-b text-center">75</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('broad-beans', -1)">-</button>
-                                    <input type="number" id="broad-beans-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('broad-beans', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">मक्का</td>
-                            <td class="px-6 py-4 border-b">Corn / Maize</td>
-                            <td class="px-6 py-4 border-b text-center">60</td>
-                            <td class="px-6 py-4 border-b text-center">55</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('corn', -1)">-</button>
-                                    <input type="number" id="corn-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('corn', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">कचालू</td>
-                            <td class="px-6 py-4 border-b">Yam</td>
-                            <td class="px-6 py-4 border-b text-center">70</td>
-                            <td class="px-6 py-4 border-b text-center">65</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('yam', -1)">-</button>
-                                    <input type="number" id="yam-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('yam', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">कचरी</td>
-                            <td class="px-6 py-4 border-b">Snap Melon / Wild Melon</td>
-                            <td class="px-6 py-4 border-b text-center">50</td>
-                            <td class="px-6 py-4 border-b text-center">45</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('snap-melon', -1)">-</button>
-                                    <input type="number" id="snap-melon-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('snap-melon', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 border-b">हल्दी की गांठ</td>
-                            <td class="px-6 py-4 border-b">Turmeric Root</td>
-                            <td class="px-6 py-4 border-b text-center">200</td>
-                            <td class="px-6 py-4 border-b text-center">195</td>
-                            <td class="px-6 py-4 border-b text-center">
-                                <div class="flex items-center justify-center">
-                                    <button class="quantity-btn" onclick="updateQuantity('turmeric', -1)">-</button>
-                                    <input type="number" id="turmeric-quantity" class="quantity-input" value="0" min="0" readonly>
-                                    <span class="ml-2">in kg</span>
-                                    <button class="quantity-btn" onclick="updateQuantity('turmeric', 1)">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <!-- Search and Filter -->
+            <div class="mb-8 flex flex-col md:flex-row gap-4 justify-center items-center">
+                <input type="text" id="searchInput" placeholder="Search for vegetables..." class="px-4 py-2 border rounded-md w-full md:w-64">
+                <select id="categoryFilter" class="px-4 py-2 border rounded-md">
+                    <option value="">All Categories</option>
+                    <option value="tomato-onion-potato">TOMATO ONION POTATO</option>
+                    <option value="leafy-vegetables">LEAFY VEGETABLES</option>
+                    <option value="frozen-vegetables">FROZEN VEGETABLES</option>
+                    <option value="indian-vegetables">INDIAN VEGETABLES</option>
+                    <option value="imported-vegetables">IMPORTED VEGETABLES</option>
+                </select>
             </div>
-            <div class="text-center mt-8">
-                <button class="bg-orange-500 text-white py-2 px-6 rounded-md hover:bg-orange-600" onclick="addToCart()">Add to Cart</button>
+
+            <!-- TOMATO ONION POTATO -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">TOMATO ONION POTATO</h3>
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="ONION (REGULAR)">
+                        <img src="https://source.unsplash.com/400x400/?onion" alt="ONION (REGULAR)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ONION (REGULAR)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹20</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('onion-regular', -1)">-</button>
+                            <input type="number" id="onion-regular-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('onion-regular', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="TOMATO (LARGE)">
+                        <img src="https://source.unsplash.com/400x400/?tomato large" alt="TOMATO (LARGE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">TOMATO (LARGE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹30</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('tomato-large', -1)">-</button>
+                            <input type="number" id="tomato-large-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('tomato-large', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="TOMATO (GRAVY)">
+                        <img src="https://source.unsplash.com/400x400/?tomato gravy" alt="TOMATO (GRAVY)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">TOMATO (GRAVY)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹20</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('tomato-gravy', -1)">-</button>
+                            <input type="number" id="tomato-gravy-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('tomato-gravy', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="ONION (LARGE)">
+                        <img src="https://source.unsplash.com/400x400/?onion large" alt="ONION (LARGE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ONION (LARGE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹26</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('onion-large', -1)">-</button>
+                            <input type="number" id="onion-large-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('onion-large', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="POTATO (REGULAR)">
+                        <img src="https://source.unsplash.com/400x400/?potato" alt="POTATO (REGULAR)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">POTATO (REGULAR)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹22</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('potato-regular', -1)">-</button>
+                            <input type="number" id="potato-regular-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('potato-regular', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="POTATO (LARGE)">
+                        <img src="https://source.unsplash.com/400x400/?potato large" alt="POTATO (LARGE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">POTATO (LARGE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹20</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('potato-large', -1)">-</button>
+                            <input type="number" id="potato-large-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('potato-large', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="TOMATO HYBRID (MIXED SIZE/RIPENESS)">
+                        <img src="https://source.unsplash.com/400x400/?tomato hybrid" alt="TOMATO HYBRID (MIXED SIZE/RIPENESS)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">TOMATO HYBRID (MIXED SIZE/RIPENESS)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹32</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('tomato-hybrid-mixed', -1)">-</button>
+                            <input type="number" id="tomato-hybrid-mixed-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('tomato-hybrid-mixed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="ONION (MIXED SIZE)">
+                        <img src="https://source.unsplash.com/400x400/?onion mixed" alt="ONION (MIXED SIZE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ONION (MIXED SIZE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹19</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('onion-mixed-size', -1)">-</button>
+                            <input type="number" id="onion-mixed-size-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('onion-mixed-size', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="POTATO CHIPSONA">
+                        <img src="https://source.unsplash.com/400x400/?potato chipsona" alt="POTATO CHIPSONA" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">POTATO CHIPSONA</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹23</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('potato-chipsona', -1)">-</button>
+                            <input type="number" id="potato-chipsona-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('potato-chipsona', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="RED POTATO - LADY ROSETTA (LR)">
+                        <img src="https://source.unsplash.com/400x400/?red potato" alt="RED POTATO - LADY ROSETTA (LR)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">RED POTATO - LADY ROSETTA (LR)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹19</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('red-potato-lr', -1)">-</button>
+                            <input type="number" id="red-potato-lr-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('red-potato-lr', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="SIRKA ONION">
+                        <img src="https://source.unsplash.com/400x400/?onion sirka" alt="SIRKA ONION" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">SIRKA ONION</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: NUMBER</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹24</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('sirka-onion', -1)">-</button>
+                            <input type="number" id="sirka-onion-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">nos</span>
+                            <button class="quantity-btn" onclick="updateQuantity('sirka-onion', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="POTATO (MIXED SIZE)">
+                        <img src="https://source.unsplash.com/400x400/?potato mixed" alt="POTATO (MIXED SIZE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">POTATO (MIXED SIZE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: NUMBER</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹20</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('potato-mixed-size', -1)">-</button>
+                            <input type="number" id="potato-mixed-size-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">nos</span>
+                            <button class="quantity-btn" onclick="updateQuantity('potato-mixed-size', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="BABY POTATO">
+                        <img src="https://source.unsplash.com/400x400/?baby potato" alt="BABY POTATO" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BABY POTATO</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹18</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('baby-potato', -1)">-</button>
+                            <input type="number" id="baby-potato-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('baby-potato', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="TOMATO DESI (MIXED SIZE/RIPENESS)">
+                        <img src="https://source.unsplash.com/400x400/?tomato desi" alt="TOMATO DESI (MIXED SIZE/RIPENESS)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">TOMATO DESI (MIXED SIZE/RIPENESS)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹28</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('tomato-desi-mixed', -1)">-</button>
+                            <input type="number" id="tomato-desi-mixed-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('tomato-desi-mixed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="POTATO (MARKET BAG)">
+                        <img src="https://source.unsplash.com/400x400/?potato market bag" alt="POTATO (MARKET BAG)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">POTATO (MARKET BAG)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹19</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('potato-market-bag', -1)">-</button>
+                            <input type="number" id="potato-market-bag-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('potato-market-bag', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="ONION (MARKET BAG)">
+                        <img src="https://source.unsplash.com/400x400/?onion market bag" alt="ONION (MARKET BAG)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ONION (MARKET BAG)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹17</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('onion-market-bag', -1)">-</button>
+                            <input type="number" id="onion-market-bag-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('onion-market-bag', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="WHITE ONION">
+                        <img src="https://source.unsplash.com/400x400/?white onion" alt="WHITE ONION" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">WHITE ONION</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹110</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('white-onion', -1)">-</button>
+                            <input type="number" id="white-onion-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('white-onion', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="tomato-onion-potato" data-name="ONION PEELED (BIG SIZE)">
+                        <img src="https://source.unsplash.com/400x400/?peeled onion" alt="ONION PEELED (BIG SIZE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ONION PEELED (BIG SIZE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹75</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('onion-peeled-big', -1)">-</button>
+                            <input type="number" id="onion-peeled-big-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('onion-peeled-big', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-center">
-                <div class="logo mb-4">vegras</div>
-                <p class="text-gray-400 text-center">© 2025 Suprova. All rights reserved.</p>
+            <!-- LEAFY VEGETABLES -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">LEAFY VEGETABLES</h3>
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="leafy-vegetables" data-name="CORIANDER LEAVES/DHANIA">
+                        <img src="https://source.unsplash.com/400x400/?coriander leaves" alt="CORIANDER LEAVES/DHANIA" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">CORIANDER LEAVES/DHANIA</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹130</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('coriander-leaves-dhania', -1)">-</button>
+                            <input type="number" id="coriander-leaves-dhania-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('coriander-leaves-dhania', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="leafy-vegetables" data-name="PUDINA">
+                        <img src="https://source.unsplash.com/400x400/?pudina mint" alt="PUDINA" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">PUDINA</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹120</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('pudina', -1)">-</button>
+                            <input type="number" id="pudina-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('pudina', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="leafy-vegetables" data-name="SPRING ONION">
+                        <img src="https://source.unsplash.com/400x400/?spring onion" alt="SPRING ONION" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">SPRING ONION</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹40</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('spring-onion', -1)">-</button>
+                            <input type="number" id="spring-onion-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('spring-onion', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="leafy-vegetables" data-name="PALAK">
+                        <img src="https://source.unsplash.com/400x400/?palak spinach" alt="PALAK" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">PALAK</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹50</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('palak', -1)">-</button>
+                            <input type="number" id="palak-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('palak', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="leafy-vegetables" data-name="CURRY LEAVES">
+                        <img src="https://source.unsplash.com/400x400/?curry leaves" alt="CURRY LEAVES" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">CURRY LEAVES</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹800</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('curry-leaves', -1)">-</button>
+                            <input type="number" id="curry-leaves-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('curry-leaves', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="leafy-vegetables" data-name="BANANA LEAF">
+                        <img src="https://source.unsplash.com/400x400/?banana leaf" alt="BANANA LEAF" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BANANA LEAF</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: TWO PIECE</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹20</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('banana-leaf-two', -1)">-</button>
+                            <input type="number" id="banana-leaf-two-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">pcs</span>
+                            <button class="quantity-btn" onclick="updateQuantity('banana-leaf-two', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="leafy-vegetables" data-name="SARSO KA SAAG">
+                        <img src="https://source.unsplash.com/400x400/?sarso saag" alt="SARSO KA SAAG" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">SARSO KA SAAG</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹40</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('sarso-ka-saag', -1)">-</button>
+                            <input type="number" id="sarso-ka-saag-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('sarso-ka-saag', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+            <!-- FROZEN VEGETABLES -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">FROZEN VEGETABLES</h3>
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="frozen-vegetables" data-name="FROZEN SWEET CORN">
+                        <img src="https://source.unsplash.com/400x400/?frozen sweet corn" alt="FROZEN SWEET CORN" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">FROZEN SWEET CORN</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹80</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('frozen-sweet-corn', -1)">-</button>
+                            <input type="number" id="frozen-sweet-corn-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('frozen-sweet-corn', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="frozen-vegetables" data-name="FROZEN GREEN PEAS">
+                        <img src="https://source.unsplash.com/400x400/?frozen green peas" alt="FROZEN GREEN PEAS" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">FROZEN GREEN PEAS</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹110</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('frozen-green-peas', -1)">-</button>
+                            <input type="number" id="frozen-green-peas-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('frozen-green-peas', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyAAlsMvIBJf5N39wjckLszxvC5m_bpnINc",
-            authDomain: "lokart-2dc3c.firebaseapp.com",
-            databaseURL: "https://lokart-2dc3c-default-rtdb.firebaseio.com",
-            projectId: "lokart-2dc3c",
-            storageBucket: "lokart-2dc3c.firebasestorage.app",
-            messagingSenderId: "174715257453",
-            appId: "1:174715257453:web:be4b91210aa1771f587564",
-            measurementId: "G-NGHHKZHCV5"
-        };
+            <!-- INDIAN VEGETABLES -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">INDIAN VEGETABLES</h3>
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Green Capsicum (Big size)">
+                        <img src="https://source.unsplash.com/400x400/?green capsicum" alt="Green Capsicum (Big size)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Green Capsicum (Big size)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹120</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('green-capsicum-big', -1)">-</button>
+                            <input type="number" id="green-capsicum-big-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('green-capsicum-big', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Orange Carrot">
+                        <img src="https://source.unsplash.com/400x400/?orange carrot" alt="Orange Carrot" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Orange Carrot</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹50</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('orange-carrot', -1)">-</button>
+                            <input type="number" id="orange-carrot-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('orange-carrot', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Garlic Peeled">
+                        <img src="https://source.unsplash.com/400x400/?garlic peeled" alt="Garlic Peeled" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Garlic Peeled</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹80</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('garlic-peeled', -1)">-</button>
+                            <input type="number" id="garlic-peeled-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('garlic-peeled', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Green Chilli">
+                        <img src="https://source.unsplash.com/400x400/?green chilli" alt="Green Chilli" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Green Chilli</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹55</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('green-chilli', -1)">-</button>
+                            <input type="number" id="green-chilli-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('green-chilli', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Lemon">
+                        <img src="https://source.unsplash.com/400x400/?lemon" alt="Lemon" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Lemon</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹65</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('lemon', -1)">-</button>
+                            <input type="number" id="lemon-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('lemon', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Cabbage">
+                        <img src="https://source.unsplash.com/400x400/?cabbage" alt="Cabbage" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Cabbage</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹50</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('cabbage', -1)">-</button>
+                            <input type="number" id="cabbage-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('cabbage', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Ginger">
+                        <img src="https://source.unsplash.com/400x400/?ginger" alt="Ginger" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Ginger</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹100</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('ginger', -1)">-</button>
+                            <input type="number" id="ginger-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('ginger', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Beans">
+                        <img src="https://source.unsplash.com/400x400/?beans" alt="Beans" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Beans</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹120</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('beans', -1)">-</button>
+                            <input type="number" id="beans-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('beans', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Indian Cucumber">
+                        <img src="https://source.unsplash.com/400x400/?indian cucumber" alt="Indian Cucumber" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Indian Cucumber</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹35</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('indian-cucumber', -1)">-</button>
+                            <input type="number" id="indian-cucumber-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('indian-cucumber', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="Cauliflower">
+                        <img src="https://source.unsplash.com/400x400/?cauliflower" alt="Cauliflower" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">Cauliflower</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹90</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('cauliflower', -1)">-</button>
+                            <input type="number" id="cauliflower-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('cauliflower', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="GREEN CAPASICUM (MIXED SIZE)">
+                        <img src="https://source.unsplash.com/400x400/?green capsicum mixed" alt="GREEN CAPASICUM (MIXED SIZE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">GREEN CAPASICUM (MIXED SIZE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹55</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('green-capsicum-mixed', -1)">-</button>
+                            <input type="number" id="green-capsicum-mixed-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('green-capsicum-mixed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="LAOKI ( MIXED SIZE)">
+                        <img src="https://source.unsplash.com/400x400/?laoki gourd" alt="LAOKI ( MIXED SIZE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">LAOKI ( MIXED SIZE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹40</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('laoki-mixed', -1)">-</button>
+                            <input type="number" id="laoki-mixed-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('laoki-mixed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="BEETROOT">
+                        <img src="https://source.unsplash.com/400x400/?beetroot" alt="BEETROOT" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BEETROOT</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹40</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('beetroot', -1)">-</button>
+                            <input type="number" id="beetroot-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('beetroot', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="GARLIC WHOLE">
+                        <img src="https://source.unsplash.com/400x400/?garlic whole" alt="GARLIC WHOLE" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">GARLIC WHOLE</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹80</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('garlic-whole', -1)">-</button>
+                            <input type="number" id="garlic-whole-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('garlic-whole', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="CABBAGE (UNSORTED)">
+                        <img src="https://source.unsplash.com/400x400/?cabbage unsorted" alt="CABBAGE (UNSORTED)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">CABBAGE (UNSORTED)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹30</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('cabbage-unsorted', -1)">-</button>
+                            <input type="number" id="cabbage-unsorted-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('cabbage-unsorted', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="BHINDI">
+                        <img src="https://source.unsplash.com/400x400/?bhindi okra" alt="BHINDI" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BHINDI</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹40</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('bhindi', -1)">-</button>
+                            <input type="number" id="bhindi-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('bhindi', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="PUMPKIN">
+                        <img src="https://source.unsplash.com/400x400/?pumpkin" alt="PUMPKIN" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">PUMPKIN</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹60</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('pumpkin', -1)">-</button>
+                            <input type="number" id="pumpkin-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('pumpkin', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="BRINJAL (BIG)">
+                        <img src="https://source.unsplash.com/400x400/?brinjal big" alt="BRINJAL (BIG)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BRINJAL (BIG)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹55</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('brinjal-big', -1)">-</button>
+                            <input type="number" id="brinjal-big-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('brinjal-big', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="KARELA">
+                        <img src="https://source.unsplash.com/400x400/?karela bitter gourd" alt="KARELA" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">KARELA</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹50</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('karela', -1)">-</button>
+                            <input type="number" id="karela-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('karela', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="DRUMSTICK/MODINGA">
+                        <img src="https://source.unsplash.com/400x400/?drumstick" alt="DRUMSTICK/MODINGA" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">DRUMSTICK/MODINGA</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹170</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('drumstick-moringa', -1)">-</button>
+                            <input type="number" id="drumstick-moringa-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('drumstick-moringa', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="BROWN NARIYAL">
+                        <img src="https://source.unsplash.com/400x400/?brown coconut" alt="BROWN NARIYAL" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BROWN NARIYAL</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: PIECE</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹50</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('brown-nariyal', -1)">-</button>
+                            <input type="number" id="brown-nariyal-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">pcs</span>
+                            <button class="quantity-btn" onclick="updateQuantity('brown-nariyal', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="PARWAL">
+                        <img src="https://source.unsplash.com/400x400/?parwal" alt="PARWAL" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">PARWAL</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹90</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('parwal', -1)">-</button>
+                            <input type="number" id="parwal-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('parwal', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="INDIAN CUCUMBER MIXED SIZE">
+                        <img src="https://source.unsplash.com/400x400/?indian cucumber mixed" alt="INDIAN CUCUMBER MIXED SIZE" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">INDIAN CUCUMBER MIXED SIZE</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹25</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('indian-cucumber-mixed', -1)">-</button>
+                            <input type="number" id="indian-cucumber-mixed-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('indian-cucumber-mixed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="BEANS UNSORTED">
+                        <img src="https://source.unsplash.com/400x400/?beans unsorted" alt="BEANS UNSORTED" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BEANS UNSORTED</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹100</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('beans-unsorted', -1)">-</button>
+                            <input type="number" id="beans-unsorted-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('beans-unsorted', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="JACKFRUIT">
+                        <img src="https://source.unsplash.com/400x400/?jackfruit" alt="JACKFRUIT" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">JACKFRUIT</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹100</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('jackfruit', -1)">-</button>
+                            <input type="number" id="jackfruit-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('jackfruit', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="BRINJAL (SMALL)">
+                        <img src="https://source.unsplash.com/400x400/?brinjal small" alt="BRINJAL (SMALL)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BRINJAL (SMALL)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹25</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('brinjal-small', -1)">-</button>
+                            <input type="number" id="brinjal-small-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('brinjal-small', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="RAWE PAPAYA">
+                        <img src="https://source.unsplash.com/400x400/?raw papaya" alt="RAWE PAPAYA" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">RAWE PAPAYA</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹40</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('rawe-papaya', -1)">-</button>
+                            <input type="number" id="rawe-papaya-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('rawe-papaya', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="MOTA CHILLI">
+                        <img src="https://source.unsplash.com/400x400/?mota chilli" alt="MOTA CHILLI" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">MOTA CHILLI</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹90</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('mota-chilli', -1)">-</button>
+                            <input type="number" id="mota-chilli-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('mota-chilli', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="ARBI">
+                        <img src="https://source.unsplash.com/400x400/?arbi taro" alt="ARBI" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ARBI</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹45</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('arbi', -1)">-</button>
+                            <input type="number" id="arbi-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('arbi', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="KACCHA MANGO">
+                        <img src="https://source.unsplash.com/400x400/?raw mango" alt="KACCHA MANGO" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">KACCHA MANGO</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹200</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('kaccha-mango', -1)">-</button>
+                            <input type="number" id="kaccha-mango-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('kaccha-mango', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="LOTUS STEM">
+                        <img src="https://source.unsplash.com/400x400/?lotus stem" alt="LOTUS STEM" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">LOTUS STEM</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: 4-5 PACKS</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹40</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('lotus-stem', -1)">-</button>
+                            <input type="number" id="lotus-stem-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">packs</span>
+                            <button class="quantity-btn" onclick="updateQuantity('lotus-stem', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="SWEET POTATO">
+                        <img src="https://source.unsplash.com/400x400/?sweet potato" alt="SWEET POTATO" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">SWEET POTATO</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹80</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('sweet-potato', -1)">-</button>
+                            <input type="number" id="sweet-potato-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('sweet-potato', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="CAULIFLOWER (MIXED SIZE)">
+                        <img src="https://source.unsplash.com/400x400/?cauliflower mixed" alt="CAULIFLOWER (MIXED SIZE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">CAULIFLOWER (MIXED SIZE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹80</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('cauliflower-mixed', -1)">-</button>
+                            <input type="number" id="cauliflower-mixed-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('cauliflower-mixed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="MIXED VEG">
+                        <img src="https://source.unsplash.com/400x400/?mixed veg" alt="MIXED VEG" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">MIXED VEG</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹120</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('mixed-veg', -1)">-</button>
+                            <input type="number" id="mixed-veg-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('mixed-veg', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="REDDISH WHITE">
+                        <img src="https://source.unsplash.com/400x400/?white radish" alt="REDDISH WHITE" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">REDDISH WHITE</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹35</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('reddish-white', -1)">-</button>
+                            <input type="number" id="reddish-white-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('reddish-white', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="BRINJAL (LONG PURPLE)">
+                        <img src="https://source.unsplash.com/400x400/?brinjal long purple" alt="BRINJAL (LONG PURPLE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BRINJAL (LONG PURPLE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹35</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('brinjal-long-purple', -1)">-</button>
+                            <input type="number" id="brinjal-long-purple-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('brinjal-long-purple', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="CARROT (BIG)">
+                        <img src="https://source.unsplash.com/400x400/?carrot big" alt="CARROT (BIG)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">CARROT (BIG)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹50</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('carrot-big', -1)">-</button>
+                            <input type="number" id="carrot-big-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('carrot-big', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="indian-vegetables" data-name="KACCHA BANANA">
+                        <img src="https://source.unsplash.com/400x400/?raw banana" alt="KACCHA BANANA" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">KACCHA BANANA</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹50</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('kaccha-banana', -1)">-</button>
+                            <input type="number" id="kaccha-banana-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('kaccha-banana', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
-
-        onAuthStateChanged(auth, (user) => {
-            const authButton = document.getElementById('authButton');
-            const logoutButton = document.getElementById('logoutButton');
-            if (user) {
-                authButton.classList.add('hidden');
-                logoutButton.classList.remove('hidden');
-            } else {
-                authButton.classList.remove('hidden');
-                logoutButton.classList.add('hidden');
-            }
-        });
-
-        window.toggleAuthModal = function() {
-            const modal = document.getElementById('authModal');
-            modal.classList.toggle('show');
-            if (!modal.classList.contains('show')) {
-                resetForm();
-            }
-        };
-
-        let isLoginMode = true;
-        window.toggleAuthMode = function() {
-            isLoginMode = !isLoginMode;
-            const authTitle = document.getElementById('authTitle');
-            const authSubmit = document.getElementById('authSubmit');
-            const toggleAuthMode = document.getElementById('toggleAuthMode');
-            authTitle.textContent = isLoginMode ? 'Login' : 'Sign Up';
-            authSubmit.textContent = isLoginMode ? 'Login' : 'Sign Up';
-            toggleAuthMode.textContent = isLoginMode ? 'Create an account' : 'Already have an account? Login';
-            resetForm();
-        };
-
-        function resetForm() {
-            document.getElementById('email').value = '';
-            document.getElementById('password').value = '';
-            document.getElementById('authError').classList.add('hidden');
-            document.getElementById('authError').textContent = '';
-        }
-
-        window.handleAuth = async function() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const authError = document.getElementById('authError');
-
-            try {
-                if (isLoginMode) {
-                    await signInWithEmailAndPassword(auth, email, password);
-                } else {
-                    await createUserWithEmailAndPassword(auth, email, password);
-                }
-                toggleAuthModal();
-            } catch (error) {
-                authError.classList.remove('hidden');
-                authError.textContent = error.message;
-            }
-        };
-
-        window.signInWithGoogle = async function() {
-            try {
-                await signInWithPopup(auth, provider);
-                toggleAuthModal();
-            } catch (error) {
-                const authError = document.getElementById('authError');
-                authError.classList.remove('hidden');
-                authError.textContent = error.message;
-            }
-        };
-
-        window.logout = async function() {
-            try {
-                await signOut(auth);
-            } catch (error) {
-                console.error('Logout error:', error);
-            }
-        };
-    </script>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            const href = anchor.getAttribute('href');
-            if (href && href !== '#' && document.querySelector(href)) {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        });
-
-        // Quantity update function
-        window.updateQuantity = function(item, change) {
-            const input = document.getElementById(`${item}-quantity`);
-            let value = parseInt(input.value);
-            value = Math.max(0, value + change);
-            input.value = value;
-        };
-
-        // Add to cart function
-        window.addToCart = function() {
-            const order = {};
-            const inputs = document.querySelectorAll('.quantity-input');
-            const items = [
-                { id: 'potato', hindi: 'आलू', english: 'Potato', myRate: 25 },
-                { id: 'onion', hindi: 'प्याज़', english: 'Onion', myRate: 35 },
-                { id: 'tomato', hindi: 'टमाटर', english: 'Tomato', myRate: 45 },
-                { id: 'brinjal', hindi: 'बैंगन', english: 'Brinjal / Eggplant', myRate: 55 },
-                { id: 'okra', hindi: 'भिंडी', english: 'Lady Finger / Okra', myRate: 65 },
-                { id: 'bottle-gourd', hindi: 'लौकी', english: 'Bottle Gourd', myRate: 40 },
-                { id: 'ridge-gourd', hindi: 'तोरई', english: 'Ridge Gourd / Sponge Gourd', myRate: 50 },
-                { id: 'pumpkin', hindi: 'कद्दू', english: 'Pumpkin', myRate: 30 },
-                { id: 'carrot', hindi: 'गाजर', english: 'Carrot', myRate: 55 },
-                { id: 'radish', hindi: 'मूली', english: 'Radish', myRate: 35 },
-                { id: 'cauliflower', hindi: 'गोभी', english: 'Cauliflower', myRate: 65 },
-                { id: 'cabbage', hindi: 'पत्ता गोभी', english: 'Cabbage', myRate: 45 },
-                { id: 'spinach', hindi: 'पालक', english: 'Spinach', myRate: 25 },
-                { id: 'fenugreek', hindi: 'मेथी', english: 'Fenugreek Leaves', myRate: 35 },
-                { id: 'mustard-leaves', hindi: 'सरसों का साग', english: 'Mustard Leaves', myRate: 30 },
-                { id: 'green-peas', hindi: 'हरा मटर', english: 'Green Peas', myRate: 75 },
-                { id: 'capsicum', hindi: 'शिमला मिर्च', english: 'Capsicum / Bell Pepper', myRate: 85 },
-                { id: 'green-chili', hindi: 'हरी मिर्च', english: 'Green Chili', myRate: 55 },
-                { id: 'ginger', hindi: 'अदरक', english: 'Ginger', myRate: 115 },
-                { id: 'garlic', hindi: 'लहसुन', english: 'Garlic', myRate: 145 },
-                { id: 'lemon', hindi: 'नींबू', english: 'Lemon', myRate: 75 },
-                { id: 'coriander', hindi: 'धनिया पत्ता', english: 'Coriander Leaves', myRate: 95 },
-                { id: 'curry-leaves', hindi: 'करी पत्ता', english: 'Curry Leaves', myRate: 115 },
-                { id: 'colocasia', hindi: 'कड़ीमूल (अरबी)', english: 'Colocasia / Taro Root', myRate: 60 },
-                { id: 'beans', hindi: 'बीन्स', english: 'Beans', myRate: 70 },
-                { id: 'apple-gourd', hindi: 'टिंडा', english: 'Apple Gourd / Indian Round Gourd', myRate: 50 },
-                { id: 'cucumber', hindi: 'खीरा', english: 'Cucumber', myRate: 45 },
-                { id: 'drumstick', hindi: 'सहजन (सहजन की फली)', english: 'Drumstick', myRate: 85 },
-                { id: 'beetroot', hindi: 'चुकंदर', english: 'Beetroot', myRate: 55 },
-                { id: 'jackfruit', hindi: 'कटहल', english: 'Jackfruit', myRate: 65 },
-                { id: 'broad-beans', hindi: 'सेम', english: 'Broad Beans', myRate: 75 },
-                { id: 'corn', hindi: 'मक्का', english: 'Corn / Maize', myRate: 55 },
-                { id: 'yam', hindi: 'कचालू', english: 'Yam', myRate: 65 },
-                { id: 'snap-melon', hindi: 'कचरी', english: 'Snap Melon / Wild Melon', myRate: 45 },
-                { id: 'turmeric', hindi: 'हल्दी की गांठ', english: 'Turmeric Root', myRate: 195 }
-            ];
-
-            inputs.forEach(input => {
-                const itemId = input.id.replace('-quantity', '');
-                const quantity = parseInt(input.value);
-                if (quantity > 0) {
-                    const item = items.find(i => i.id === itemId);
-                    if (item) {
-                        order[itemId] = { hindi: item.hindi, english: item.english, quantity, myRate: item.myRate };
-                    }
-                }
-            });
-
-            if (Object.keys(order).length > 0) {
-                localStorage.setItem('cart', JSON.stringify(order));
-                alert('Items added to cart successfully!');
-                inputs.forEach(input => input.value = '0');
-                window.location.href = 'cart.html';
-            } else {
-                alert('Please select at least one item to add to cart.');
-            }
-        };
-    </script>
-</body>
-</html>
+            <!-- IMPORTED VEGETABLES -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">IMPORTED VEGETABLES</h3>
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="BUTTON MUSHROOM">
+                        <img src="https://source.unsplash.com/400x400/?button mushroom" alt="BUTTON MUSHROOM" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BUTTON MUSHROOM</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹210</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('button-mushroom', -1)">-</button>
+                            <input type="number" id="button-mushroom-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('button-mushroom', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="LETTUCE ICEBERG">
+                        <img src="https://source.unsplash.com/400x400/?lettuce iceberg" alt="LETTUCE ICEBERG" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">LETTUCE ICEBERG</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹130</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('lettuce-iceberg', -1)">-</button>
+                            <input type="number" id="lettuce-iceberg-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('lettuce-iceberg', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="ENGLISH CUCUMBER">
+                        <img src="https://source.unsplash.com/400x400/?english cucumber" alt="ENGLISH CUCUMBER" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ENGLISH CUCUMBER</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹20</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('english-cucumber', -1)">-</button>
+                            <input type="number" id="english-cucumber-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('english-cucumber', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="BASIL LEAVES">
+                        <img src="https://source.unsplash.com/400x400/?basil leaves" alt="BASIL LEAVES" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BASIL LEAVES</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹300</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('basil-leaves', -1)">-</button>
+                            <input type="number" id="basil-leaves-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('basil-leaves', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="RED CAPASICUM (MIXED SIZE/SHAPE)">
+                        <img src="https://source.unsplash.com/400x400/?red capsicum" alt="RED CAPASICUM (MIXED SIZE/SHAPE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">RED CAPASICUM (MIXED SIZE/SHAPE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹230</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('red-capsicum-mixed', -1)">-</button>
+                            <input type="number" id="red-capsicum-mixed-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('red-capsicum-mixed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="YELLOW CAPASICUM (MIXED SIZE/SHAPE)">
+                        <img src="https://source.unsplash.com/400x400/?yellow capsicum" alt="YELLOW CAPASICUM (MIXED SIZE/SHAPE)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">YELLOW CAPASICUM (MIXED SIZE/SHAPE)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹240</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('yellow-capsicum-mixed', -1)">-</button>
+                            <input type="number" id="yellow-capsicum-mixed-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('yellow-capsicum-mixed', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="PARSLEY CURLY">
+                        <img src="https://source.unsplash.com/400x400/?parsley curly" alt="PARSLEY CURLY" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">PARSLEY CURLY</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹400</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('parsley-curly', -1)">-</button>
+                            <input type="number" id="parsley-curly-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('parsley-curly', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="LETTUCE GREEN (SALAD LEAVES/CURLY)">
+                        <img src="https://source.unsplash.com/400x400/?lettuce green" alt="LETTUCE GREEN (SALAD LEAVES/CURLY)" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">LETTUCE GREEN (SALAD LEAVES/CURLY)</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹150</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('lettuce-green-salad', -1)">-</button>
+                            <input type="number" id="lettuce-green-salad-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('lettuce-green-salad', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="ZUCCHINI GREEN">
+                        <img src="https://source.unsplash.com/400x400/?zucchini green" alt="ZUCCHINI GREEN" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ZUCCHINI GREEN</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹170</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('zucchini-green', -1)">-</button>
+                            <input type="number" id="zucchini-green-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('zucchini-green', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="BABY CORN PEELED">
+                        <img src="https://source.unsplash.com/400x400/?baby corn" alt="BABY CORN PEELED" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BABY CORN PEELED</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹300</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('baby-corn-peeled', -1)">-</button>
+                            <input type="number" id="baby-corn-peeled-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('baby-corn-peeled', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="BROCCOLI">
+                        <img src="https://source.unsplash.com/400x400/?broccoli" alt="BROCCOLI" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">BROCCOLI</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹300</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('broccoli', -1)">-</button>
+                            <input type="number" id="broccoli-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('broccoli', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="CHEERRY TOMATO RED">
+                        <img src="https://source.unsplash.com/400x400/?cherry tomato red" alt="CHEERRY TOMATO RED" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">CHEERRY TOMATO RED</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹180</p>
+                        <div class="flex items-center justify-center">
+                            <button class="quantity-btn" onclick="updateQuantity('cherry-tomato-red', -1)">-</button>
+                            <input type="number" id="cherry-tomato-red-quantity" class="quantity-input" value="0" min="0" readonly>
+                            <span class="ml-1 text-xs">kg</span>
+                            <button class="quantity-btn" onclick="updateQuantity('cherry-tomato-red', 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="product-card bg-white border rounded-lg shadow-md p-2 flex flex-col" data-category="imported-vegetables" data-name="ZUCCHINI YELLOW">
+                        <img src="https://source.unsplash.com/400x400/?zucchini yellow" alt="ZUCCHINI YELLOW" class="w-full aspect-square object-cover rounded-md mb-2">
+                        <h4 class="text-sm font-semibold">ZUCCHINI YELLOW</h4>
+                        <p class="text-xs text-gray-600 mb-1">Unit: KILOGRAM</p>
+                        <p class="text-sm font-bold text-green-600 mb-2">₹200</p>
+                        <div class="flex items-center justify-center">
+                            <button
