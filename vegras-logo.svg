@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 130" width="520" height="130" role="img" aria-label="VEGRAS fresh fruits and vegetables">
+<g transform="translate(8 8) scale(1.14)"><path d="M50 94C21 82 6 52 14 14C45 20 60 52 50 94Z" fill="#1B7A3A"/><path d="M50 94C79 82 94 52 86 14C55 20 40 52 50 94Z" fill="#F4B318"/><path d="M50 94C46 70 36 44 18 22" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/><path d="M50 94C54 70 64 44 82 22" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="24" r="9" fill="#CC3B27"/><ellipse cx="46.5" cy="20.5" rx="3" ry="1.8" fill="#fff" opacity=".35" transform="rotate(-35 46.5 20.5)"/></g>
+<text x="150" y="82" font-family="Rozha One, Georgia, serif" font-size="68" letter-spacing="5" fill="#16261A">VEGRAS</text>
+<text x="153" y="108" font-family="DM Mono, monospace" font-size="13" letter-spacing="3.2" fill="#4B5E50">FRESH FRUITS &amp; VEGETABLES</text>
+</svg>
