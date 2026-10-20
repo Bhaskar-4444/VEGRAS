@@ -462,9 +462,9 @@ dialog .toast{position:absolute}
       <li><button class="fl" data-act="goto" data-target="baskets">Baskets</button></li>
       <li><button class="fl" data-act="goto" data-target="season">Seasonal guide</button></li>
     </ul></div>
-    <div><h4>Contact</h4><ul><li>WhatsApp: +91 95083 31748</li><li>help.vegras@gmail.com</li><li>Daily, 6 AM to 9 PM</li></ul></div>
+    <div><h4>Contact</h4><ul><li>WhatsApp: +91 8986395006</li><li>help.vegras@gmail.com</li><li>Daily, 6 AM to 9 PM</li></ul></div>
   </div>
-  <div class="wrap legal"><span>FSSAI Lic. No. [add your licence number]</span><span>Prices include GST where applicable.</span><span>Orders are confirmed on WhatsApp.</span></div>
+  <div class="wrap legal"><span>FSSAI Lic. No. [add your licence number]</span><span>Prices include GST where applicable.</span><span>Orders are confirmed on WhatsApp Only.</span></div>
 </footer>
 
 <button class="cartbar" id="cartbar" data-act="cart" hidden><span id="cbTxt">0 items</span><span>View basket &rarr;</span></button>
@@ -920,7 +920,7 @@ function place(){
   if(Object.keys(err).length){renderCart(true);const k=['name','phone','pin','house','area'].find(x=>err[x]);const el=k?$('#co-'+k):$('.slots');if(el)el.scrollIntoView({block:'center'});if(k&&el)el.focus();return}
   const T=totals(),ns=slotsFor(co.day)[co.slot].l;
   const slotTxt=(co.day?'Tomorrow, ':'Today, ')+ns;
-  const payTxt={upi:'UPI on delivery',cod:'Cash on delivery'}[co.pay];
+  const payTxt={upi:'UPI',cod:'Cash on delivery'}[co.pay];
   const addr=co.house.trim()+', '+co.area.trim()+(co.land.trim()?' (near '+co.land.trim()+')':'')+' - '+co.pin;
   const oid='VG'+String(Math.floor(Math.random()*900000)+100000);
   const items=T.L.map((l,n)=>(n+1)+'. '+l.p.name+' - '+l.p.packs[l.i].l+' x '+l.q+' = '+inr(l.pr*l.q)).join('\n');
